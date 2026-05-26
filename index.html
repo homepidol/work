@@ -407,7 +407,7 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
     <span>시트</span>
   </button>
   <button class="tab" id="tab-admin" onclick="go('admin')">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93a10 10 0 0 0 0 14.14"/></svg>
     <span>관리자</span>
   </button>
 </div>
@@ -528,7 +528,7 @@ function go(name){
 }
 
 /* ════════════════════════════════
-   진도율 계산 (최종값 반영 방식)
+   진도율 계산 (누적 합산에서 -> '최종값 반영 방식'으로 혁신 설계)
 ════════════════════════════════ */
 // 특정 호선, 탱크, 작업에 대해 '가장 최근에 입력된 진도율(%)'을 반환합니다.
 function getTankTaskCum(hoseon, tank, task, ex=-1){
@@ -655,7 +655,7 @@ function selectHoseon(h){
   renderMaster();
 }
 
-/* ── 활성 호선 정밀 대시보드 렌더링 ── */
+/* ── 활성 호선 정밀 대시보드 렌더링 (SVG 팔각형 정밀 렌더러 탑재) ── */
 function renderActiveHoseonDashboard(){
   const h = S.activeHoseon;
   const panel = document.getElementById('detailsPanel');
@@ -709,7 +709,7 @@ function renderActiveHoseonDashboard(){
     </div>`;
   }).join('');
 
-  // 2. 4개의 Tank 팔각형 차트 랙 렌더링
+  // 2. 4개의 Tank 팔각형 차트 랙 렌더링 (도형 비율 최대화 및 정밀 렌더링)
   const rack = document.getElementById('tankRack');
   let rackHtml = '';
 
@@ -762,7 +762,7 @@ function renderActiveHoseonDashboard(){
   rack.innerHTML = rackHtml;
 }
 
-/* ── 마스터 테이블 ── */
+/* ── 마스터 테이블 (활성 호선의 탱크별 최종 진척도만 표기) ── */
 function renderMaster(){
   const h = S.activeHoseon;
   const mhead = document.getElementById('mhead');
@@ -864,7 +864,7 @@ function renderLog(){
     : '<div class="empty">입력된 작업 내역이 없습니다</div>';
 }
 
-/* ── 캘린더 ── */
+/* ── 캘린더 (로컬 타임존 시차 버그 완벽 수정) ── */
 function renderCal(){
   const y=S.calY, m=S.calM;
   document.getElementById('calTitle').textContent=`${y}년 ${m+1}월`;
@@ -874,6 +874,7 @@ function renderCal(){
   let html=['일','월','화','수','목','금','토'].map(d=>`<div class="chead">${d}</div>`).join('');
   for(let i=0;i<42;i++){
     const d=i-first+1;
+    // 시차가 왜곡되지 않도록 년, 월, 일을 순수 로컬 데이터로 주입하여 날짜 생성
     const dt=new Date(y,m,d);
     const ds=getLocalDateStr(dt);
     
@@ -945,6 +946,8 @@ function lockAdmin(){
 }
 
 function renderAdmin(){
+  if(!adminUnlocked) return; // 미인증 우회 방지 가드
+  
   /* 호선 */
   const hEl=document.getElementById('hoseonList'); hEl.innerHTML='';
   S.hoseons.forEach((h,i)=>{
@@ -983,23 +986,28 @@ function renderAdmin(){
 }
 
 function addHoseon(){
+  if(!adminUnlocked) { toast('권한이 없습니다.'); return; }
   S.hoseons.push(''); save(); renderAdmin();
   setTimeout(()=>{ const els=document.querySelectorAll('#hoseonList input'); if(els.length) els[els.length-1].focus(); },80);
 }
 function delHoseon(i){
+  if(!adminUnlocked) { toast('권한이 없습니다.'); return; }
   if(S.hoseons.length<=1){ toast('최소 1개 필요합니다'); return; }
   S.hoseons.splice(i,1); save(); renderAdmin();
 }
 function addTask(){
+  if(!adminUnlocked) { toast('권한이 없습니다.'); return; }
   if(S.tasks.length>=10){ toast('최대 10개까지 가능합니다'); return; }
   S.tasks.push('작업'+(S.tasks.length+1)); save(); renderAdmin();
   setTimeout(()=>{ const els=document.querySelectorAll('#taskList input'); if(els.length) els[els.length-1].focus(); },80);
 }
 function delTask(i){
+  if(!adminUnlocked) { toast('권한이 없습니다.'); return; }
   if(S.tasks.length<=1){ toast('최소 1개 필요합니다'); return; }
   S.tasks.splice(i,1); save(); renderAdmin();
 }
 function saveAdmin(){
+  if(!adminUnlocked) { toast('권한이 없습니다.'); return; }
   S.hoseons = S.hoseons.map(h=>String(h).trim()).filter(Boolean);
   if(!S.hoseons.length) S.hoseons=[...DEF_HOSEONS];
   S.tasks = S.tasks.map(t=>String(t).trim()).filter(Boolean);
@@ -1061,7 +1069,7 @@ function pickPct(v){
   updatePrev();
 }
 
-// 입력 내용 실시간 탱크 예측치 미리보기 구현
+// 입력 내용 실시간 탱크 예측치 미리보기 구현 (최종값 반영형 수치 예측 계산)
 function updatePrev(){
   const h=document.getElementById('fHost').value;
   const tk=window._selTank || '1 tank';
@@ -1076,7 +1084,7 @@ function updatePrev(){
   // 기존 탱크 평균
   const exTankAvg = getTankAvg(h, tk, S.editIdx!==null?S.editIdx:-1);
   
-  // 가상 변경치 반영 탱크 평균 연산
+  // 가상 변경치 반영 탱크 평균 연산 (누적 합산이 아닌 입력된 최종치로 교환)
   let virtualTotal = 0;
   S.tasks.forEach(t => {
     let taskVal = 0;
@@ -1286,7 +1294,7 @@ function parseAndImportCSV(text){
     let [date,hoseon,tank,task,pct,workers,hours,note] = row;
     if(!date||!hoseon) continue;
     
-    // 구식 CSV 포맷 호환용 구조 보정
+    // 이전 탱크 컬럼이 없는 구식 CSV 포맷 호환용 구조 보정
     if(!TANKS.includes(tank) && S.tasks.includes(tank)) {
       note = hours;
       hours = workers;
