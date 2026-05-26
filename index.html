@@ -189,6 +189,14 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(76px + var(--sb));background:rgba(0,0,0,.82);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:500;opacity:0;transition:opacity .2s;z-index:500;pointer-events:none;white-space:nowrap}
 .toast.on{opacity:1}
 .empty{text-align:center;padding:32px;font-size:14px;color:var(--text2)}
+
+/* 마스터 테이블 셀 터치 입력 스타일 */
+.master-cell{cursor:pointer;position:relative;transition:background 0.12s}
+.master-cell:active{background:var(--accent-light)!important}
+.master-cell:hover{background:var(--bg2)}
+.cell-hint{font-size:9px;color:var(--text3);margin-top:2px;opacity:0;transition:opacity 0.15s}
+.master-cell:hover .cell-hint{opacity:1}
+@media(hover:none){.cell-hint{opacity:0.5}}
 </style>
 </head>
 <body>
@@ -586,7 +594,13 @@ function renderMaster(){
     const cells=S.tasks.map(t=>{
       const c=getTankTaskCum(h,tk,t); const w=Math.min(c,100); const ov=c>100;
       const bdg=c>=100?`<span class="bdg ${ov?'b-ov':'b-done'}">${ov?'초과':'완료'}</span>`:c>0?`<span class="bdg b-go">진행중</span>`:`<span class="bdg b-no">미시작</span>`;
-      return `<td><div class="pn ${ov?'ov':''}">${c}%</div><div class="pb"><div class="pbi ${ov?'ov':''}" style="width:${w}%"></div></div>${bdg}</td>`;
+      // 셀 터치 시 해당 호선·탱크·작업이 선택된 입력창 직접 오픈
+      return `<td class="master-cell" onclick="openModalWith('${h}','${tk}','${t}')" title="${tk} / ${t} 입력">
+        <div class="pn ${ov?'ov':''}">${c}%</div>
+        <div class="pb"><div class="pbi ${ov?'ov':''}" style="width:${w}%"></div></div>
+        ${bdg}
+        <div class="cell-hint">✏️</div>
+      </td>`;
     }).join('');
     const avg=getTankAvg(h,tk); const limitAvg=Math.min(avg,100); const isOver=avg>100;
     rowsHtml+=`<tr><td><span class="hname" style="font-weight:800;color:var(--accent);">[${tk.toUpperCase()}]</span></td>${cells}
@@ -796,6 +810,31 @@ function openModal(idx){
     document.getElementById('fNote').value='';
   }
   selectModalTank(window._selTank);
+  document.getElementById('modal').classList.add('on');
+  document.body.style.overflow='hidden';
+}
+
+/* 마스터 테이블 셀 터치 → 호선·탱크·작업 사전 세팅된 입력창 직접 오픈 */
+function openModalWith(hoseon, tank, task){
+  S.editIdx=null; window._selPct=0; window._selTank=tank;
+  document.getElementById('mTitle').textContent='작업 입력';
+  buildModalUI();
+  // 날짜·호선·탱크 사전 선택
+  document.getElementById('fDate').value=S.selDay||getLocalDateStr();
+  document.getElementById('fHost').value=hoseon;
+  document.getElementById('fWorkers').value='';
+  document.getElementById('fHours').value='';
+  document.getElementById('fNote').value='';
+  // 탱크 칩 선택
+  selectModalTank(tank);
+  // 작업 체크 사전 선택
+  const taskIdx=S.tasks.indexOf(task);
+  if(taskIdx>=0){
+    document.getElementById('tc'+taskIdx)?.classList.add('on');
+    const ck=document.getElementById('tck'+taskIdx);
+    if(ck) ck.textContent='✓';
+  }
+  updatePrev();
   document.getElementById('modal').classList.add('on');
   document.body.style.overflow='hidden';
 }
