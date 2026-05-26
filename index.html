@@ -175,6 +175,9 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
 .abtn:active{opacity:.8}
 
 /* 관리자 */
+.page#pg-admin {
+  padding-bottom: calc(140px + var(--sb)); /* 스티키 세이브바로 인한 모바일 폼 가림 해결 */
+}
 .asec{margin-bottom:20px}
 .asec h3{font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
 .aitem{display:flex;align-items:center;gap:10px;background:var(--bg);border:0.5px solid var(--border2);border-radius:var(--r);padding:4px 12px 4px 10px;margin-bottom:8px}
@@ -184,7 +187,7 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
 .adel:active{opacity:.7}
 .aadd{width:100%;padding:13px;border:1.5px dashed var(--border2);border-radius:var(--r);background:var(--bg);color:var(--text2);font-size:14px;font-family:inherit;cursor:pointer;font-weight:600;margin-bottom:8px}
 .aadd:active{background:var(--bg2)}
-.savebar{padding:12px 16px calc(12px + var(--sb));background:var(--bg3);position:sticky;bottom:0}
+.savebar{padding:12px 16px calc(12px + var(--sb));background:var(--bg3);position:sticky;bottom:0;z-index:100}
 .savebtn{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:var(--rl);font-size:16px;font-weight:700;font-family:inherit;cursor:pointer}
 .savebtn:active{opacity:.8}
 
@@ -512,10 +515,18 @@ function boot(){
 function save(){ localStorage.setItem('hb4', JSON.stringify(S)); }
 
 /* ════════════════════════════════
-   탭 전환
+   탭 전환 (검증 후 탭 활성화 방식으로 교정)
 ════════════════════════════════ */
 const PAGE_TITLES = {home:'호선별 관리 보드',log:'일일작업일지',cal:'캘린더',sheet:'구글 시트 연동',admin:'관리자'};
 function go(name){
+  // 1. 관리자 탭 진입 시 사전 검증 실행 (비밀번호 취소/불일치 시 탭 변경 원천 봉쇄)
+  if(name==='admin'){
+    if(!checkAdminPw()) {
+      return; // UI 전환을 시작도 하지 않고 바로 리턴 차단
+    }
+  }
+
+  // 2. 검증 완료 후 또는 일반 탭 전환시에만 실제 UI 전환을 실행함
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
   document.getElementById('pg-'+name).classList.add('on');
@@ -523,12 +534,17 @@ function go(name){
   document.getElementById('topTitle').textContent = PAGE_TITLES[name]||'';
   const showAdd = ['home','log','cal'].includes(name);
   document.getElementById('addBtn').style.display = showAdd ? '' : 'none';
-  if(name==='admin'){ if(!checkAdminPw()) return; renderAdmin(); }
-  if(name==='home'){ renderAll(); }
+
+  if(name==='admin'){
+    renderAdmin();
+  }
+  if(name==='home'){
+    renderAll();
+  }
 }
 
 /* ════════════════════════════════
-   진도율 계산 (누적 합산에서 -> '최종값 반영 방식'으로 혁신 설계)
+   진도율 계산 (최종값 반영 방식)
 ════════════════════════════════ */
 // 특정 호선, 탱크, 작업에 대해 '가장 최근에 입력된 진도율(%)'을 반환합니다.
 function getTankTaskCum(hoseon, tank, task, ex=-1){
@@ -1215,18 +1231,16 @@ async function syncSheet(){
     const resText = await response.text();
     const resJson = JSON.parse(resText);
     
-    if (resJson.ok) {
+    if (resJson && resJson.ok) {
       toast('구글 스프레드시트에 저장되었습니다!');
     } else {
-      toast('저장 실패: ' + (resJson.error || '알 수 없는 오류'));
+      toast('저장 실패: ' + ((resJson && resJson.error) || '알 수 없는 오류'));
     }
   }
   catch(err){ 
     console.error(err);
-    // Google Apps Script는 CORS 리다이렉션을 사용하므로, 
-    // 브라우저에 따라 POST 요청은 도달했으나 응답을 읽는 중 에러가 발생할 수 있습니다.
-    // 따라서 catch 구문에서도 재검증합니다.
-    toast('동기화 완료 (시트를 확인해 주세요)'); 
+    // 구글 웹앱 리다이렉트로 인해 브라우저 단에서 CORS 예외가 잡혔을 수 있으므로 검증 안내를 상세화합니다.
+    toast('전송 오류 발생! 웹앱 URL 및 권한 설정을 확인하세요.'); 
   }
 }
 
