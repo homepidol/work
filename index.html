@@ -45,67 +45,41 @@ body{
   flex-direction:column;
 }
 .shell{display:flex;flex-direction:column;height:100%;padding-top:var(--st)}
-
-/* 상단바 */
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:13px 16px 11px;background:var(--bg);border-bottom:0.5px solid var(--border);flex-shrink:0}
 .topbar h1{font-size:17px;font-weight:700;letter-spacing:-.3px}
 #addBtn{padding:8px 16px;background:var(--accent);color:#fff;border:none;border-radius:20px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;white-space:nowrap}
 #addBtn:active{opacity:.8}
-
-/* 페이지 */
 .pages{flex:1;overflow:hidden;position:relative}
 .page{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;display:none;padding:16px 16px calc(80px + var(--sb))}
 .page.on{display:block}
-
-/* 하단 탭 */
 .tabs{display:flex;background:var(--bg);border-top:0.5px solid var(--border);padding-bottom:var(--sb);flex-shrink:0}
 .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 2px 6px;border:none;background:none;color:var(--text3);font-size:10px;font-family:inherit;cursor:pointer}
 .tab.on{color:var(--accent)}
 .tab svg{width:22px;height:22px;stroke-width:1.8}
-
-/* 섹션 레이블 */
 .slabel{font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
-
-/* 요약 */
 .sum2{display:grid;grid-template-columns:repeat(auto-fit, minmax(110px, 1fr));gap:10px;margin-bottom:16px}
 .mcard{background:var(--bg);border-radius:var(--rl);border:0.5px solid var(--border);padding:14px 16px;box-shadow: 0 1px 3px rgba(0,0,0,0.02)}
 .mcard .ml{font-size:11px;color:var(--text2);font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .mcard .mv{font-size:22px;font-weight:700}
 .mcard .ms{font-size:12px;font-weight:400;color:var(--text2)}
-
-/* 호선별 필터 세그먼트 */
 .hoseon-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:14px;-webkit-overflow-scrolling:touch}
 .hoseon-tabs::-webkit-scrollbar{display:none}
 .htab{padding:8px 16px;background:var(--bg);color:var(--text2);border:0.5px solid var(--border);border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition: all 0.15s ease}
 .htab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-
-/* 대형 도면 시각화 패널 레이아웃 */
 .panel-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:16px}
-@media(min-width:768px){
-  .panel-grid{grid-template-columns:260px 1fr}
-}
-
-/* 왼쪽 도넛 서머리 카드 */
+@media(min-width:768px){.panel-grid{grid-template-columns:260px 1fr}}
 .donut-summary{background:#1c1c1e;color:#fff;border-radius:var(--rl);padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
 .donut-summary .dtit{font-size:24px;font-weight:800;letter-spacing:-0.5px;margin-bottom:2px}
 .donut-summary .dsub{font-size:11px;color:#a1a1aa;margin-bottom:14px}
 .donut-canvas{position:relative;width:140px;height:140px}
 .donut-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff}
-
-/* 오른쪽 탱크 팔각형 그리드 */
 .tank-rack{display:grid;grid-template-columns:repeat(2, 1fr);gap:12px;width:100%}
-@media(min-width:480px){
-  .tank-rack{grid-template-columns:repeat(4, 1fr)}
-}
+@media(min-width:480px){.tank-rack{grid-template-columns:repeat(4, 1fr)}}
 .tank-card{background:var(--bg);border-radius:var(--rl);border:0.5px solid var(--border);padding:18px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;box-shadow: 0 2px 5px rgba(0,0,0,0.02)}
 .tank-card .tname{font-size:14px;font-weight:800;margin-bottom:12px;color:var(--text);letter-spacing:-0.3px}
-
-/* 팔각형 SVG 차트 스타일 및 비율 확대 (w-full 최대 130px) */
 .octagon-chart{width:100%;max-width:130px;aspect-ratio:1/1;position:relative;margin-bottom:6px}
 .octagon-chart svg{width:100%;height:100%;display:block}
 .octagon-chart .oct-level{font-size:16px;font-weight:900;color:#fff;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-shadow: 0 1.5px 3px rgba(0,0,0,0.85);font-family:monospace}
-
-/* 마스터 테이블 */
 .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--rl);border:0.5px solid var(--border);background:var(--bg);margin-bottom:8px}
 .mtable{border-collapse:collapse;font-size:12px;width:100%;min-width:480px}
 .mtable th{padding:8px 10px;font-size:10px;font-weight:700;color:var(--text2);border-bottom:0.5px solid var(--border);text-align:center;background:var(--bg2);white-space:nowrap}
@@ -126,8 +100,6 @@ body{
 .b-go{background:var(--amber-bg);color:var(--amber)}
 .b-no{background:var(--bg3);color:var(--text3)}
 .b-ov{background:var(--red-bg);color:var(--red)}
-
-/* 일지 */
 .fbar{display:flex;gap:8px;margin-bottom:12px;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .fbar::-webkit-scrollbar{display:none}
 .fsel{padding:7px 10px;font-size:13px;border:0.5px solid var(--border2);border-radius:var(--r);background:var(--bg);color:var(--text);font-family:inherit;flex-shrink:0;-webkit-appearance:none}
@@ -142,8 +114,6 @@ body{
 .lact{display:flex;gap:6px;margin-top:8px;justify-content:flex-end}
 .lact button{padding:5px 14px;font-size:12px;border:0.5px solid var(--border2);border-radius:var(--r);cursor:pointer;background:none;color:var(--text2);font-family:inherit}
 .lact .dbtn{color:var(--red)!important}
-
-/* 캘린더 */
 .cnav{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .cnav button{border:none;background:none;cursor:pointer;font-size:26px;color:var(--text2);padding:2px 8px;line-height:1}
 .ctitle{font-size:16px;font-weight:700}
@@ -160,8 +130,6 @@ body{
 .dtitle{font-size:14px;font-weight:700;margin-bottom:10px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
 .chip{padding:5px 10px;border-radius:20px;font-size:12px;font-weight:600;background:var(--accent-light);color:var(--accent)}
-
-/* 시트 탭 */
 .gbox{background:var(--bg);border-radius:var(--rl);border:0.5px solid var(--border);padding:16px;margin-bottom:12px}
 .glabel{font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
 .ginput{width:100%;padding:12px 14px;border:0.5px solid var(--border2);border-radius:var(--r);font-size:13px;background:var(--bg);color:var(--text);font-family:monospace;margin-bottom:12px;-webkit-appearance:none}
@@ -173,25 +141,19 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
 .abtn.pri{background:var(--accent);color:#fff}
 .abtn.sec{background:var(--bg);color:var(--text);border:0.5px solid var(--border2)}
 .abtn:active{opacity:.8}
-
-/* 관리자 */
-.page#pg-admin {
-  padding-bottom: calc(140px + var(--sb)); /* 스티키 세이브바로 인한 모바일 폼 가림 해결 */
-}
+.page#pg-admin{padding-bottom:calc(140px + var(--sb))}
 .asec{margin-bottom:20px}
 .asec h3{font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
 .aitem{display:flex;align-items:center;gap:10px;background:var(--bg);border:0.5px solid var(--border2);border-radius:var(--r);padding:4px 12px 4px 10px;margin-bottom:8px}
 .aitem input{flex:1;border:none;background:var(--bg);font-size:15px;color:var(--text);font-family:inherit;outline:none;min-width:0;padding:10px 0;-webkit-appearance:none;appearance:none}
 .aidx{font-size:12px;color:var(--text3);width:24px;flex-shrink:0;font-weight:700;text-align:center}
-.adel{width:28px;height:28px;border-radius:50%;border:none;background:var(--red-bg);color:var(--red);font-size:18px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;line-height:1;padding:0;flex-shrink:0}
+.adel{width:28px;height:28px;border-radius:50%;border:none;background:var(--red-bg);color:var(--red);font-size:18px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;line-height:1;padding:0}
 .adel:active{opacity:.7}
 .aadd{width:100%;padding:13px;border:1.5px dashed var(--border2);border-radius:var(--r);background:var(--bg);color:var(--text2);font-size:14px;font-family:inherit;cursor:pointer;font-weight:600;margin-bottom:8px}
 .aadd:active{background:var(--bg2)}
 .savebar{padding:12px 16px calc(12px + var(--sb));background:var(--bg3);position:sticky;bottom:0;z-index:100}
 .savebtn{width:100%;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:var(--rl);font-size:16px;font-weight:700;font-family:inherit;cursor:pointer}
 .savebtn:active{opacity:.8}
-
-/* 모달 */
 .mbg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:flex-end;justify-content:center}
 .mbg.on{display:flex}
 .mbox{background:var(--bg);border-radius:var(--rl) var(--rl) 0 0;padding:20px 20px calc(20px + var(--sb));width:100%;max-width:540px;max-height:93vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -202,13 +164,9 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
 .fr2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .fi{width:100%;padding:12px 14px;border:0.5px solid var(--border2);border-radius:var(--r);font-size:15px;background:var(--bg);color:var(--text);font-family:inherit;-webkit-appearance:none}
 .fta{width:100%;padding:12px 14px;border:0.5px solid var(--border2);border-radius:var(--r);font-size:15px;background:var(--bg);color:var(--text);font-family:inherit;resize:none;min-height:72px}
-
-/* 새 Tank 칩 세그먼트 (입력 모달용) */
 .tank-chips{display:flex;gap:8px;margin-bottom:12px}
 .tank-chip{flex:1;padding:10px 4px;border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-size:12px;font-weight:700;text-align:center;border-radius:var(--r);cursor:pointer;user-select:none}
 .tank-chip.on{border-color:var(--accent);background:var(--accent-light);color:var(--accent)}
-
-/* 작업 체크 */
 .tgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .titem{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r);cursor:pointer;background:var(--bg);user-select:none;-webkit-user-select:none}
 .titem.on{border-color:var(--green);background:var(--green-bg)}
@@ -216,8 +174,6 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
 .tchk{width:18px;height:18px;border-radius:4px;border:1.5px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff}
 .titem.on .tchk{background:var(--green);border-color:var(--green)}
 .tname{font-size:14px;color:var(--text);font-weight:500}
-
-/* 진도율 체크 */
 .pgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .pitem{display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 4px;border:1.5px solid var(--border);border-radius:var(--r);cursor:pointer;background:var(--bg);user-select:none;-webkit-user-select:none}
 .pitem.on{border-color:var(--accent);background:var(--accent-light)}
@@ -225,15 +181,11 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
 .pval{font-size:13px;font-weight:700;color:var(--text)}
 .pdot{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--border2)}
 .pitem.on .pdot{background:var(--accent);border-color:var(--accent)}
-
-/* 미리보기 */
 .pvbox{background:var(--bg2);border-radius:var(--r);padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.9;margin-top:4px;min-height:42px;white-space:pre-line}
 .mbtns{display:flex;gap:10px;margin-top:18px}
 .mcancel{flex:1;padding:14px;border:0.5px solid var(--border2);border-radius:var(--rl);background:none;color:var(--text);font-size:15px;font-weight:600;font-family:inherit;cursor:pointer}
 .msave{flex:2;padding:14px;border:none;border-radius:var(--rl);background:var(--accent);color:#fff;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer}
 .mcancel:active,.msave:active{opacity:.75}
-
-/* 토스트 */
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(76px + var(--sb));background:rgba(0,0,0,.82);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:500;opacity:0;transition:opacity .2s;z-index:500;pointer-events:none;white-space:nowrap}
 .toast.on{opacity:1}
 .empty{text-align:center;padding:32px;font-size:14px;color:var(--text2)}
@@ -242,33 +194,22 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
 <body>
 <div class="shell">
 
-<!-- 상단바 -->
 <div class="topbar">
   <h1 id="topTitle">호선별 관리 보드</h1>
   <button id="addBtn" onclick="openModal()">＋ 작업 입력</button>
 </div>
 
-<!-- 페이지 -->
 <div class="pages">
 
-  <!-- 홈 -->
   <div class="page on" id="pg-home">
-    <!-- 호선 요약 카드 레이아웃 -->
     <div class="sum2" id="sumRow"></div>
-    
-    <!-- 호선별 탭 선택기 -->
     <div class="slabel">호선 선택 (상세 보기 터치)</div>
     <div class="hoseon-tabs" id="hoseonTabs"></div>
-
-    <!-- 미선택 가이드 패널 -->
-    <div id="noSelectionMessage" class="empty" style="padding: 48px 16px; background: var(--bg); border-radius: var(--rl); border: 0.5px solid var(--border); margin-bottom: 16px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.02)">
-      <div style="font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px;">📋 호선 상세 모니터링</div>
-      <div style="font-size: 12px; color: var(--text2);">상단의 호선 탭을 터치하시면 탱크별 상세 진척도와 탱크 게이지가 실시간으로 매핑됩니다.</div>
+    <div id="noSelectionMessage" class="empty" style="padding:48px 16px;background:var(--bg);border-radius:var(--rl);border:0.5px solid var(--border);margin-bottom:16px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.02)">
+      <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px;">📋 호선 상세 모니터링</div>
+      <div style="font-size:12px;color:var(--text2);">상단의 호선 탭을 터치하시면 탱크별 상세 진척도와 탱크 게이지가 실시간으로 매핑됩니다.</div>
     </div>
-
-    <!-- 호선별 정밀 대시보드 그래픽 패널 (style 기본 숨김 처리) -->
-    <div class="panel-grid" id="detailsPanel" style="display: none;">
-      <!-- 왼쪽: 활성 호선 종합 원형 게이지 -->
+    <div class="panel-grid" id="detailsPanel" style="display:none;">
       <div class="donut-summary">
         <div class="dtit" id="activeHoseonName">----</div>
         <div class="dsub">전체 종합 완료율</div>
@@ -276,14 +217,10 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
           <canvas id="activeDonut"></canvas>
           <div class="donut-center" id="activeDonutLabel">0%</div>
         </div>
-        <!-- 선택 호선의 작업별 평균 현황 격자 -->
-        <div id="donutLegendList" style="width:100%; margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:8px 12px; font-size:11px; color:#a1a1aa; border-top:1px solid rgba(255,255,255,0.1); padding-top:12px;"></div>
+        <div id="donutLegendList" style="width:100%;margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;font-size:11px;color:#a1a1aa;border-top:1px solid rgba(255,255,255,0.1);padding-top:12px;"></div>
       </div>
-
-      <!-- 오른쪽: 1 tank ~ 4 tank 팔각형 수위 차트 랙 -->
       <div class="tank-rack" id="tankRack"></div>
     </div>
-
     <div class="slabel">호선별 종합 마스터 (탱크별 상세 진척도)</div>
     <div class="tscroll">
       <table class="mtable"><thead id="mhead"></thead><tbody id="mbody"></tbody></table>
@@ -307,7 +244,6 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
     </div>
   </div>
 
-  <!-- 일지 -->
   <div class="page" id="pg-log">
     <div class="fbar">
       <select class="fsel" id="fH" onchange="renderLog()"><option value="">전체 호선</option></select>
@@ -318,7 +254,6 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
     <div id="logList"></div>
   </div>
 
-  <!-- 캘린더 -->
   <div class="page" id="pg-cal">
     <div class="cnav">
       <button onclick="prevM()">&#8249;</button>
@@ -329,7 +264,6 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
     <div id="calDetail"></div>
   </div>
 
-  <!-- 시트 -->
   <div class="page" id="pg-sheet">
     <div class="gbox">
       <div class="glabel">Apps Script 웹 앱 URL</div>
@@ -366,7 +300,6 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
     </div>
   </div>
 
-  <!-- 관리자 -->
   <div class="page" id="pg-admin">
     <div class="asec">
       <h3>호선 번호 관리</h3>
@@ -389,9 +322,8 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
     </div>
   </div>
 
-</div><!-- /pages -->
+</div>
 
-<!-- 하단 탭 -->
 <div class="tabs">
   <button class="tab on" id="tab-home" onclick="go('home')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -415,9 +347,8 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
   </button>
 </div>
 
-</div><!-- /shell -->
+</div>
 
-<!-- 입력 모달 -->
 <div class="mbg" id="modal">
   <div class="mbox">
     <div class="mhandle"></div>
@@ -426,13 +357,10 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
       <div><label class="fl">날짜</label><input class="fi" type="date" id="fDate" onchange="updatePrev()"></div>
       <div><label class="fl">호선 번호</label><select class="fi" id="fHost" onchange="updatePrev()"></select></div>
     </div>
-    
-    <!-- 대상 Tank 선택 영역 -->
     <div class="fg">
       <label class="fl">대상 TANK</label>
       <div class="tank-chips" id="tankSelection"></div>
     </div>
-
     <div class="fr2" style="margin-bottom:14px">
       <div><label class="fl">작업 인원 (명)</label><input class="fi" type="number" id="fWorkers" min="0" placeholder="0" inputmode="numeric"></div>
       <div><label class="fl">총 시수 (H)</label><input class="fi" type="number" id="fHours" min="0" step="0.5" placeholder="0" inputmode="decimal"></div>
@@ -461,29 +389,20 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
 <div class="toast" id="toastEl"></div>
 
 <script>
-/* ════════════════════════════════
-   상수
-════════════════════════════════ */
 const DEF_HOSEONS = ['2665','2666','2667'];
 const DEF_TASKS   = ['작업1','작업2','작업3','작업4','작업5','작업6'];
 const TCOLORS     = ['#3b82f6','#22c55e','#f59e0b','#ef4444','#a855f7','#06b6d4','#f97316','#84cc16','#ec4899','#14b8a6'];
 const PSTEPS      = [10,20,30,40,50,60,70,80,90,100];
 const TANKS       = ['1 tank', '2 tank', '3 tank', '4 tank'];
 
-/* ════════════════════════════════
-   상태
-════════════════════════════════ */
 let S = {
   entries:[], hoseons:[...DEF_HOSEONS], tasks:[...DEF_TASKS],
   calY:new Date().getFullYear(), calM:new Date().getMonth(),
   conf:{url:'',sheet:'호선관리'}, editIdx:null, selDay:null,
-  activeHoseon: '' // 초기화 시 빈 값으로 시작하여 가이드 안내 표시
+  activeHoseon:''
 };
 let mainDonutChart = null;
 
-/* ════════════════════════════════
-   로컬 시간대 안전 날짜 포맷터 (시차 버그 근본적 방지)
-════════════════════════════════ */
 function getLocalDateStr(date = new Date()) {
   const y = date.getFullYear();
   const m = String(date.getMonth() + 1).padStart(2, '0');
@@ -491,9 +410,14 @@ function getLocalDateStr(date = new Date()) {
   return `${y}-${m}-${d}`;
 }
 
-/* ════════════════════════════════
-   초기화
-════════════════════════════════ */
+/* ════ 일지 필터 초기화 헬퍼 [BUG FIX] ════ */
+function resetLogFilters() {
+  document.getElementById('fH').value    = '';
+  document.getElementById('fTank').value = '';
+  document.getElementById('fT').value    = '';
+  document.getElementById('fD').value    = '';
+}
+
 function boot(){
   try{
     const raw = localStorage.getItem('hb4');
@@ -503,10 +427,7 @@ function boot(){
   if(!Array.isArray(S.tasks)||!S.tasks.length)     S.tasks=[...DEF_TASKS];
   if(!S.entries) S.entries=[];
   if(!S.conf)    S.conf={url:'',sheet:'호선관리'};
-  
-  // 가독성을 극대화하기 위해 홈 진입 시 상세창을 기본적으로 접고 시작합니다.
   S.activeHoseon = '';
-  
   document.getElementById('gsUrl').value   = S.conf.url||'';
   document.getElementById('gsSheet').value = S.conf.sheet||'호선관리';
   setScript();
@@ -514,19 +435,11 @@ function boot(){
 }
 function save(){ localStorage.setItem('hb4', JSON.stringify(S)); }
 
-/* ════════════════════════════════
-   탭 전환 (검증 후 탭 활성화 방식으로 교정)
-════════════════════════════════ */
 const PAGE_TITLES = {home:'호선별 관리 보드',log:'일일작업일지',cal:'캘린더',sheet:'구글 시트 연동',admin:'관리자'};
 function go(name){
-  // 1. 관리자 탭 진입 시 사전 검증 실행 (비밀번호 취소/불일치 시 탭 변경 원천 봉쇄)
   if(name==='admin'){
-    if(!checkAdminPw()) {
-      return; // UI 전환을 시작도 하지 않고 바로 리턴 차단
-    }
+    if(!checkAdminPw()) return;
   }
-
-  // 2. 검증 완료 후 또는 일반 탭 전환시에만 실제 UI 전환을 실행함
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
   document.getElementById('pg-'+name).classList.add('on');
@@ -534,366 +447,196 @@ function go(name){
   document.getElementById('topTitle').textContent = PAGE_TITLES[name]||'';
   const showAdd = ['home','log','cal'].includes(name);
   document.getElementById('addBtn').style.display = showAdd ? '' : 'none';
-
-  if(name==='admin'){
-    renderAdmin();
-  }
-  if(name==='home'){
-    renderAll();
-  }
+  if(name==='admin') renderAdmin();
+  if(name==='home')  renderAll();
 }
 
-/* ════════════════════════════════
-   진도율 계산 (최종값 반영 방식)
-════════════════════════════════ */
-// 특정 호선, 탱크, 작업에 대해 '가장 최근에 입력된 진도율(%)'을 반환합니다.
 function getTankTaskCum(hoseon, tank, task, ex=-1){
-  let latestDate = "";
-  let latestPct = 0;
-  let latestIdx = -1;
-  
-  for (let i = 0; i < S.entries.length; i++) {
-    if (i === ex) continue; // 수정 중인 본인 인덱스는 연산에서 제외하여 정밀 시뮬레이션 보장
-    const e = S.entries[i];
-    const tt = e.tasks || [e.task || ''];
-    const t = e.tank || '1 tank';
-    
-    if (e.hoseon === hoseon && t === tank && tt.includes(task)) {
-      // 날짜를 비교하여 최신 날짜를 선택. 날짜가 동일하면 가장 나중에 입력된(높은 배열 인덱스) 이력을 최종값으로 판정
-      if (!latestDate || e.date > latestDate || (e.date === latestDate && i > latestIdx)) {
-        latestDate = e.date;
-        latestPct = parseInt(e.pct) || 0;
-        latestIdx = i;
+  let latestDate='', latestPct=0, latestIdx=-1;
+  for(let i=0;i<S.entries.length;i++){
+    if(i===ex) continue;
+    const e=S.entries[i];
+    const tt=e.tasks||[e.task||''];
+    const t=e.tank||'1 tank';
+    if(e.hoseon===hoseon && t===tank && tt.includes(task)){
+      if(!latestDate||e.date>latestDate||(e.date===latestDate&&i>latestIdx)){
+        latestDate=e.date; latestPct=parseInt(e.pct)||0; latestIdx=i;
       }
     }
   }
   return latestPct;
 }
-
-// 작업 항목별 전체 4개 탱크의 평균 진도율을 구합니다.
 function getHoseonTaskAvg(hoseon, task, ex=-1){
-  let total = 0;
-  TANKS.forEach(tk => {
-    total += getTankTaskCum(hoseon, tk, task, ex);
-  });
-  return Math.round(total / TANKS.length);
+  let total=0; TANKS.forEach(tk=>{total+=getTankTaskCum(hoseon,tk,task,ex);}); return Math.round(total/TANKS.length);
 }
-
-// 특정 호선, 탱크의 평균 진행률을 계산합니다 (설정된 작업들의 최종치 평균값)
-// 즉, 작업 항목이 6개인 경우 6개의 세부 공정이 각각 100%에 수렴해야 탱크가 100% 완료됩니다.
 function getTankAvg(hoseon, tank, ex=-1){
-  if (!S.tasks.length) return 0;
-  let totalPct = 0;
-  S.tasks.forEach(t => {
-    totalPct += getTankTaskCum(hoseon, tank, t, ex);
-  });
-  return Math.round(totalPct / S.tasks.length);
+  if(!S.tasks.length) return 0;
+  let totalPct=0; S.tasks.forEach(t=>{totalPct+=getTankTaskCum(hoseon,tank,t,ex);}); return Math.round(totalPct/S.tasks.length);
 }
-
-// 호선의 종합 완료율 (4개 탱크 진척도의 평균값)
 function getHoseonAvg(hoseon, ex=-1){
-  let totalPct = 0;
-  TANKS.forEach(tk => {
-    totalPct += getTankAvg(hoseon, tk, ex);
-  });
-  return Math.round(totalPct / TANKS.length);
+  let totalPct=0; TANKS.forEach(tk=>{totalPct+=getTankAvg(hoseon,tk,ex);}); return Math.round(totalPct/TANKS.length);
 }
-
-// 구식 포맷 연동 규격 대비용 래퍼 함수 (작업별 종합 평균 반환)
 function getCum(hoseon, task, ex=-1){
-  let total = 0;
-  TANKS.forEach(tk => {
-    total += getTankTaskCum(hoseon, tk, task, ex);
-  });
-  return S.tasks.length ? Math.round(total / TANKS.length) : 0;
+  let total=0; TANKS.forEach(tk=>{total+=getTankTaskCum(hoseon,tk,task,ex);}); return S.tasks.length?Math.round(total/TANKS.length):0;
 }
 
-/* ════════════════════════════════
-   전체 렌더
-════════════════════════════════ */
 function renderAll(){
-  renderSum();
-  renderHoseonTabs();
-  renderActiveHoseonDashboard();
-  renderMaster();
-  renderLog();
-  renderCal();
-  syncFilterSelects();
+  renderSum(); renderHoseonTabs(); renderActiveHoseonDashboard(); renderMaster(); renderLog(); renderCal(); syncFilterSelects();
 }
 
-/* ── 요약 카드 ── */
 function renderSum(){
-  const today = getLocalDateStr();
-  const todayCnt = S.entries.filter(e=>e.date===today).length;
-  
-  let html = '';
-  S.hoseons.forEach(h => {
-    const avgPct = getHoseonAvg(h);
-    const isOver = avgPct > 100;
-
-    html += `
-      <div class="mcard" style="cursor:pointer;" onclick="selectHoseon('${h}')">
-        <div class="ml">${h}호선 종합진척</div>
-        <div class="mv" style="${isOver ? 'color: var(--red);' : ''}">${avgPct}<span class="ms">%</span></div>
-      </div>
-    `;
+  const today=getLocalDateStr();
+  const todayCnt=S.entries.filter(e=>e.date===today).length;
+  let html='';
+  S.hoseons.forEach(h=>{
+    const avgPct=getHoseonAvg(h); const isOver=avgPct>100;
+    html+=`<div class="mcard" style="cursor:pointer;" onclick="selectHoseon('${h}')">
+      <div class="ml">${h}호선 종합진척</div>
+      <div class="mv" style="${isOver?'color:var(--red);':''}">${avgPct}<span class="ms">%</span></div>
+    </div>`;
   });
-
-  html += `
-    <div class="mcard">
-      <div class="ml">오늘 입력</div>
-      <div class="mv">${todayCnt}<span class="ms"> 건</span></div>
-    </div>
-  `;
-
-  document.getElementById('sumRow').innerHTML = html;
+  html+=`<div class="mcard"><div class="ml">오늘 입력</div><div class="mv">${todayCnt}<span class="ms"> 건</span></div></div>`;
+  document.getElementById('sumRow').innerHTML=html;
 }
 
-/* ── 호선별 가로선택 탭 ── */
 function renderHoseonTabs(){
-  const el = document.getElementById('hoseonTabs');
-  el.innerHTML = S.hoseons.map(h => `
-    <button class="htab ${h===S.activeHoseon?'active':''}" onclick="selectHoseon('${h}')">
-      ${h}호선 모니터링
-    </button>
-  `).join('');
+  const el=document.getElementById('hoseonTabs');
+  el.innerHTML=S.hoseons.map(h=>`<button class="htab ${h===S.activeHoseon?'active':''}" onclick="selectHoseon('${h}')">${h}호선 모니터링</button>`).join('');
 }
 
 function selectHoseon(h){
-  if (S.activeHoseon === h) {
-    S.activeHoseon = '';
-  } else {
-    S.activeHoseon = h;
-  }
-  save();
-  renderHoseonTabs();
-  renderActiveHoseonDashboard();
-  renderMaster();
+  S.activeHoseon=(S.activeHoseon===h)?'':h;
+  save(); renderHoseonTabs(); renderActiveHoseonDashboard(); renderMaster();
 }
 
-/* ── 활성 호선 정밀 대시보드 렌더링 (SVG 팔각형 정밀 렌더러 탑재) ── */
 function renderActiveHoseonDashboard(){
-  const h = S.activeHoseon;
-  const panel = document.getElementById('detailsPanel');
-  const msgPanel = document.getElementById('noSelectionMessage');
-  
-  if(!h) {
-    panel.style.display = 'none';
-    msgPanel.style.display = 'block';
-    return;
-  }
-
-  panel.style.display = '';
-  msgPanel.style.display = 'none';
-  
-  document.getElementById('activeHoseonName').textContent = h;
-
-  // 1. 좌측 도넛 차트 렌더링
-  const avgPct = getHoseonAvg(h);
-  document.getElementById('activeDonutLabel').textContent = `${avgPct}%`;
-
+  const h=S.activeHoseon;
+  const panel=document.getElementById('detailsPanel');
+  const msgPanel=document.getElementById('noSelectionMessage');
+  if(!h){ panel.style.display='none'; msgPanel.style.display='block'; return; }
+  panel.style.display=''; msgPanel.style.display='none';
+  document.getElementById('activeHoseonName').textContent=h;
+  const avgPct=getHoseonAvg(h);
+  document.getElementById('activeDonutLabel').textContent=`${avgPct}%`;
   if(mainDonutChart) mainDonutChart.destroy();
-  
-  const ctx = document.getElementById('activeDonut').getContext('2d');
-  const rem = Math.max(0, 100 - avgPct);
-  
-  mainDonutChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: ['진척도', '미진행'],
-      datasets: [{
-        data: [Math.min(avgPct, 100), rem],
-        backgroundColor: ['#2563eb', '#3a3a3c'],
-        borderWidth: 0,
-        hoverOffset: 0
-      }]
-    },
-    options: {
-      cutout: '72%',
-      plugins: { legend: { display: false }, tooltip: { enabled: false } },
-      animation: { duration: 400 }
-    }
+  const ctx=document.getElementById('activeDonut').getContext('2d');
+  const rem=Math.max(0,100-avgPct);
+  mainDonutChart=new Chart(ctx,{
+    type:'doughnut',
+    data:{labels:['진척도','미진행'],datasets:[{data:[Math.min(avgPct,100),rem],backgroundColor:['#2563eb','#3a3a3c'],borderWidth:0,hoverOffset:0}]},
+    options:{cutout:'72%',plugins:{legend:{display:false},tooltip:{enabled:false}},animation:{duration:400}}
   });
-
-  const legList = document.getElementById('donutLegendList');
-  legList.innerHTML = S.tasks.map((t, idx) => {
-    const tAvg = getHoseonTaskAvg(h, t);
-    return `<div style="display:flex; align-items:center; gap:5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
-      <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:${TCOLORS[idx % TCOLORS.length]}; flex-shrink:0;"></span>
-      <span style="flex:1; text-align:left; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${t}</span>
-      <span style="font-weight:700; color:#fff;">${tAvg}%</span>
+  const legList=document.getElementById('donutLegendList');
+  legList.innerHTML=S.tasks.map((t,idx)=>{
+    const tAvg=getHoseonTaskAvg(h,t);
+    return `<div style="display:flex;align-items:center;gap:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+      <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:${TCOLORS[idx%TCOLORS.length]};flex-shrink:0;"></span>
+      <span style="flex:1;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${t}</span>
+      <span style="font-weight:700;color:#fff;">${tAvg}%</span>
     </div>`;
   }).join('');
-
-  // 2. 4개의 Tank 팔각형 차트 랙 렌더링 (도형 비율 최대화 및 정밀 렌더링)
-  const rack = document.getElementById('tankRack');
-  let rackHtml = '';
-
-  TANKS.forEach(tk => {
-    const val = getTankAvg(h, tk);
-    const limitVal = Math.min(val, 100);
-    const isOver = val > 100;
-    
-    const gradId = `oct-grad-${tk.replace(' ', '-')}`;
-    const strokeCol = isOver ? 'var(--red)' : '#38bdf8'; 
-
-    const yVal = 100 - limitVal; 
-    const hVal = limitVal;
-
-    rackHtml += `
-      <div class="tank-card">
-        <div class="tname">${tk.toUpperCase()}</div>
-        <div class="octagon-chart">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <clipPath id="oct-clip-${tk.replace(' ', '-')}">
-                <polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" />
-              </clipPath>
-              
-              <linearGradient id="${gradId}" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="${isOver ? '#f87171' : '#f97316'}" />
-                <stop offset="50%" stop-color="${isOver ? '#dc2626' : '#ea580c'}" />
-                <stop offset="100%" stop-color="${isOver ? '#991b1b' : '#b45309'}" />
-              </linearGradient>
-            </defs>
-            
-            <polygon points="30,3 70,3 97,30 97,70 70,97 30,97 3,70 3,30" fill="none" stroke="${strokeCol}" stroke-width="1.5" opacity="0.4" />
-            <polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="var(--bg2)" stroke="${strokeCol}" stroke-width="3" />
-            
-            <g clip-path="url(#oct-clip-${tk.replace(' ', '-')})">
-              <rect x="0" y="0" width="100" height="100" fill="#60a5fa" opacity="0.15" />
-              <rect x="0" y="${yVal}" width="100" height="${hVal}" fill="url(#${gradId})" />
-              
-              <line x1="0" y1="25" x2="100" y2="25" stroke="rgba(255,255,255,0.22)" stroke-width="1" />
-              <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.3)" stroke-dasharray="2,2" stroke-width="1" />
-              <line x1="0" y1="75" x2="100" y2="75" stroke="rgba(255,255,255,0.22)" stroke-width="1" />
-            </g>
-          </svg>
-          <div class="oct-level">${val}%</div>
-        </div>
+  const rack=document.getElementById('tankRack');
+  let rackHtml='';
+  TANKS.forEach(tk=>{
+    const val=getTankAvg(h,tk); const limitVal=Math.min(val,100); const isOver=val>100;
+    const gradId=`oct-grad-${tk.replace(' ','-')}`; const strokeCol=isOver?'var(--red)':'#38bdf8';
+    rackHtml+=`<div class="tank-card">
+      <div class="tname">${tk.toUpperCase()}</div>
+      <div class="octagon-chart">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="oct-clip-${tk.replace(' ','-')}">
+              <polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30"/>
+            </clipPath>
+            <linearGradient id="${gradId}" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="${isOver?'#f87171':'#f97316'}"/>
+              <stop offset="50%" stop-color="${isOver?'#dc2626':'#ea580c'}"/>
+              <stop offset="100%" stop-color="${isOver?'#991b1b':'#b45309'}"/>
+            </linearGradient>
+          </defs>
+          <polygon points="30,3 70,3 97,30 97,70 70,97 30,97 3,70 3,30" fill="none" stroke="${strokeCol}" stroke-width="1.5" opacity="0.4"/>
+          <polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="var(--bg2)" stroke="${strokeCol}" stroke-width="3"/>
+          <g clip-path="url(#oct-clip-${tk.replace(' ','-')})">
+            <rect x="0" y="0" width="100" height="100" fill="#60a5fa" opacity="0.15"/>
+            <rect x="0" y="${100-limitVal}" width="100" height="${limitVal}" fill="url(#${gradId})"/>
+            <line x1="0" y1="25" x2="100" y2="25" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+            <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.3)" stroke-dasharray="2,2" stroke-width="1"/>
+            <line x1="0" y1="75" x2="100" y2="75" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+          </g>
+        </svg>
+        <div class="oct-level">${val}%</div>
       </div>
-    `;
+    </div>`;
   });
-
-  rack.innerHTML = rackHtml;
+  rack.innerHTML=rackHtml;
 }
 
-/* ── 마스터 테이블 (활성 호선의 탱크별 최종 진척도만 표기) ── */
 function renderMaster(){
-  const h = S.activeHoseon;
-  const mhead = document.getElementById('mhead');
-  const mbody = document.getElementById('mbody');
-  
-  if (!h) {
-    mhead.innerHTML = `<tr><th>종합 마스터 테이블</th></tr>`;
-    mbody.innerHTML = `<tr><td style="padding:40px 16px; color:var(--text2); text-align:center; font-size:13px;">상단의 호선 탭을 터치하시면 탱크별 상세 작업 현황판이 이곳에 열립니다.</td></tr>`;
+  const h=S.activeHoseon;
+  const mhead=document.getElementById('mhead');
+  const mbody=document.getElementById('mbody');
+  if(!h){
+    mhead.innerHTML=`<tr><th>종합 마스터 테이블</th></tr>`;
+    mbody.innerHTML=`<tr><td style="padding:40px 16px;color:var(--text2);text-align:center;font-size:13px;">상단의 호선 탭을 터치하시면 탱크별 상세 작업 현황판이 이곳에 열립니다.</td></tr>`;
     return;
   }
-  
-  mhead.innerHTML = `<tr><th>[${h}호선] 세부탱크</th>${S.tasks.map(t=>`<th>${t}</th>`).join('')}<th>탱크평균</th></tr>`;
-  
-  let rowsHtml = '';
-  TANKS.forEach(tk => {
-    const cells = S.tasks.map(t => {
-      const c = getTankTaskCum(h, tk, t);
-      const w = Math.min(c, 100), ov = c > 100;
-      const bdg = c >= 100 ? `<span class="bdg ${ov?'b-ov':'b-done'}">${ov?'초과':'완료'}</span>`
-        : c > 0 ? `<span class="bdg b-go">진행중</span>` : `<span class="bdg b-no">미시작</span>`;
+  mhead.innerHTML=`<tr><th>[${h}호선] 세부탱크</th>${S.tasks.map(t=>`<th>${t}</th>`).join('')}<th>탱크평균</th></tr>`;
+  let rowsHtml='';
+  TANKS.forEach(tk=>{
+    const cells=S.tasks.map(t=>{
+      const c=getTankTaskCum(h,tk,t); const w=Math.min(c,100); const ov=c>100;
+      const bdg=c>=100?`<span class="bdg ${ov?'b-ov':'b-done'}">${ov?'초과':'완료'}</span>`:c>0?`<span class="bdg b-go">진행중</span>`:`<span class="bdg b-no">미시작</span>`;
       return `<td><div class="pn ${ov?'ov':''}">${c}%</div><div class="pb"><div class="pbi ${ov?'ov':''}" style="width:${w}%"></div></div>${bdg}</td>`;
     }).join('');
-    
-    const avg = getTankAvg(h, tk);
-    const limitAvg = Math.min(avg, 100);
-    const isOver = avg > 100;
-    
-    rowsHtml += `<tr>
-      <td>
-        <span class="hname" style="font-weight:800; color:var(--accent);">
-          [${tk.toUpperCase()}]
-        </span>
-      </td>
-      ${cells}
-      <td>
-        <div class="pn ${isOver?'ov':''}" style="font-weight:800; color:var(--accent); font-size:13px;">${avg}%</div>
-        <div class="pb"><div class="pbi ${isOver?'ov':''}" style="width:${limitAvg}%; background:var(--accent);"></div></div>
-      </td>
-    </tr>`;
+    const avg=getTankAvg(h,tk); const limitAvg=Math.min(avg,100); const isOver=avg>100;
+    rowsHtml+=`<tr><td><span class="hname" style="font-weight:800;color:var(--accent);">[${tk.toUpperCase()}]</span></td>${cells}
+      <td><div class="pn ${isOver?'ov':''}" style="font-weight:800;color:var(--accent);font-size:13px;">${avg}%</div>
+      <div class="pb"><div class="pbi ${isOver?'ov':''}" style="width:${limitAvg}%;background:var(--accent);"></div></div></td></tr>`;
   });
-  
-  document.getElementById('mbody').innerHTML = rowsHtml;
+  document.getElementById('mbody').innerHTML=rowsHtml;
 }
 
-/* ── 필터 셀렉트 ── */
 function syncFilterSelects(){
   const vH=document.getElementById('fH').value;
   const vTank=document.getElementById('fTank').value;
   const vT=document.getElementById('fT').value;
-  
-  document.getElementById('fH').innerHTML=
-    '<option value="">전체 호선</option>'+S.hoseons.map(h=>`<option value="${h}" ${h===vH?'selected':''}>${h}</option>`).join('');
-  
-  document.getElementById('fTank').innerHTML=
-    '<option value="">전체 탱크</option>'+TANKS.map(tk=>`<option value="${tk}" ${tk===vTank?'selected':''}>${tk}</option>`).join('');
-
-  document.getElementById('fT').innerHTML=
-    '<option value="">전체 작업</option>'+S.tasks.map(t=>`<option value="${t}" ${t===vT?'selected':''}>${t}</option>`).join('');
+  document.getElementById('fH').innerHTML='<option value="">전체 호선</option>'+S.hoseons.map(h=>`<option value="${h}" ${h===vH?'selected':''}>${h}</option>`).join('');
+  document.getElementById('fTank').innerHTML='<option value="">전체 탱크</option>'+TANKS.map(tk=>`<option value="${tk}" ${tk===vTank?'selected':''}>${tk}</option>`).join('');
+  document.getElementById('fT').innerHTML='<option value="">전체 작업</option>'+S.tasks.map(t=>`<option value="${t}" ${t===vT?'selected':''}>${t}</option>`).join('');
 }
 
-/* ── 일지 ── */
 function renderLog(){
   const fH=document.getElementById('fH').value;
   const fTank=document.getElementById('fTank').value;
   const fT=document.getElementById('fT').value;
   const fD=document.getElementById('fD').value;
   const dates=[...new Set(S.entries.map(e=>e.date))].sort().reverse();
-  
-  document.getElementById('fD').innerHTML=
-    '<option value="">전체 날짜</option>'+dates.map(d=>`<option value="${d}" ${d===fD?'selected':''}>${d}</option>`).join('');
-  
+  document.getElementById('fD').innerHTML='<option value="">전체 날짜</option>'+dates.map(d=>`<option value="${d}" ${d===fD?'selected':''}>${d}</option>`).join('');
   let list=S.entries.map((e,i)=>({...e,_i:i}));
   if(fH) list=list.filter(e=>e.hoseon===fH);
   if(fTank) list=list.filter(e=>(e.tank||'1 tank')===fTank);
   if(fT) list=list.filter(e=>(e.tasks||[e.task||'']).includes(fT));
   if(fD) list=list.filter(e=>e.date===fD);
-  
   list.sort((a,b)=>b.date.localeCompare(a.date)||b._i-a._i);
-  
-  document.getElementById('logList').innerHTML= list.length
-    ? list.map(e=>`
-        <div class="litem">
-          <div class="ltop">
-            <span class="ldate">${e.date}</span>
-            <span class="lhost" style="color:var(--accent)">${e.hoseon} [${e.tank||'1 tank'}]</span>
-            <span class="lpct">${e.pct}%</span>
-          </div>
-          <div class="ltasks">${(e.tasks||[e.task||'']).join(' · ')}</div>
-          <div class="lmeta">
-            ${e.workers?`<span>👷 ${e.workers}명</span>`:''}
-            ${e.hours?`<span>⏱ ${e.hours}H</span>`:''}
-          </div>
-          ${e.note?`<div class="lnote">"${e.note}"</div>`:''}
-          <div class="lact">
-            <button onclick="openModal(${e._i})">수정</button>
-            <button class="dbtn" onclick="delEntry(${e._i})">삭제</button>
-          </div>
-        </div>`).join('')
-    : '<div class="empty">입력된 작업 내역이 없습니다</div>';
+  document.getElementById('logList').innerHTML=list.length
+    ?list.map(e=>`<div class="litem">
+        <div class="ltop"><span class="ldate">${e.date}</span><span class="lhost" style="color:var(--accent)">${e.hoseon} [${e.tank||'1 tank'}]</span><span class="lpct">${e.pct}%</span></div>
+        <div class="ltasks">${(e.tasks||[e.task||'']).join(' · ')}</div>
+        <div class="lmeta">${e.workers?`<span>👷 ${e.workers}명</span>`:''}${e.hours?`<span>⏱ ${e.hours}H</span>`:''}</div>
+        ${e.note?`<div class="lnote">"${e.note}"</div>`:''}
+        <div class="lact"><button onclick="openModal(${e._i})">수정</button><button class="dbtn" onclick="delEntry(${e._i})">삭제</button></div>
+      </div>`).join('')
+    :'<div class="empty">입력된 작업 내역이 없습니다</div>';
 }
 
-/* ── 캘린더 (로컬 타임존 시차 버그 완벽 수정) ── */
 function renderCal(){
   const y=S.calY, m=S.calM;
   document.getElementById('calTitle').textContent=`${y}년 ${m+1}월`;
   const first=new Date(y,m,1).getDay(), last=new Date(y,m+1,0).getDate();
   const today=getLocalDateStr();
-  
   let html=['일','월','화','수','목','금','토'].map(d=>`<div class="chead">${d}</div>`).join('');
   for(let i=0;i<42;i++){
-    const d=i-first+1;
-    // 시차가 왜곡되지 않도록 년, 월, 일을 순수 로컬 데이터로 주입하여 날짜 생성
-    const dt=new Date(y,m,d);
-    const ds=getLocalDateStr(dt);
-    
+    const d=i-first+1; const dt=new Date(y,m,d); const ds=getLocalDateStr(dt);
     const oth=d<1||d>last, tod=ds===today, sel=ds===S.selDay;
     const de=S.entries.filter(e=>e.date===ds);
     const dn=`<div class="dnum">${dt.getDate()}</div>`;
@@ -908,230 +651,133 @@ function renderCalDetail(ds){
   const list=S.entries.map((e,i)=>({...e,_i:i})).filter(e=>e.date===ds);
   const el=document.getElementById('calDetail');
   if(!list.length){ el.innerHTML=`<div class="empty">${ds} 작업 없음</div>`; return; }
-  
   const g={};
-  list.forEach(e=>{
-    const tk = e.tank || '1 tank';
-    (e.tasks||[e.task||'']).forEach(t=>{
-      const k=e.hoseon+'|'+tk+'|'+t;
-      if(!g[k]) g[k]={hoseon:e.hoseon, tank:tk, task:t, val:0};
-      g[k].val = Math.max(g[k].val, parseInt(e.pct)||0);
-    });
-  });
-  
+  list.forEach(e=>{ const tk=e.tank||'1 tank'; (e.tasks||[e.task||'']).forEach(t=>{ const k=e.hoseon+'|'+tk+'|'+t; if(!g[k]) g[k]={hoseon:e.hoseon,tank:tk,task:t,val:0}; g[k].val=Math.max(g[k].val,parseInt(e.pct)||0); }); });
   let html=`<div class="dtitle">${ds} 작업 내역</div>`;
   html+=`<div class="chips">${Object.values(g).map(x=>`<div class="chip">${x.hoseon} [${x.tank}] ${x.task} ${x.val}%</div>`).join('')}</div>`;
-  html+=list.map(e=>`
-    <div class="litem">
-      <div class="ltop"><span class="lhost">${e.hoseon} [${e.tank||'1 tank'}]</span><span class="lpct">${e.pct}%</span></div>
-      <div class="ltasks">${(e.tasks||[e.task||'']).join(' · ')}</div>
-      <div class="lmeta">${e.workers?`<span>👷 ${e.workers}명</span>`:''} ${e.hours?`<span>⏱ ${e.hours}H</span>`:''}</div>
-      ${e.note?`<div class="lnote">"${e.note}"</div>`:''}
-      <div class="lact">
-        <button onclick="openModal(${e._i})">수정</button>
-        <button class="dbtn" onclick="delEntry(${e._i})">삭제</button>
-      </div>
-    </div>`).join('');
+  html+=list.map(e=>`<div class="litem">
+    <div class="ltop"><span class="lhost">${e.hoseon} [${e.tank||'1 tank'}]</span><span class="lpct">${e.pct}%</span></div>
+    <div class="ltasks">${(e.tasks||[e.task||'']).join(' · ')}</div>
+    <div class="lmeta">${e.workers?`<span>👷 ${e.workers}명</span>`:''} ${e.hours?`<span>⏱ ${e.hours}H</span>`:''}</div>
+    ${e.note?`<div class="lnote">"${e.note}"</div>`:''}
+    <div class="lact"><button onclick="openModal(${e._i})">수정</button><button class="dbtn" onclick="delEntry(${e._i})">삭제</button></div>
+  </div>`).join('');
   el.innerHTML=html;
 }
 function prevM(){ S.calM--; if(S.calM<0){S.calM=11;S.calY--;} renderCal(); }
 function nextM(){ S.calM++; if(S.calM>11){S.calM=0;S.calY++;} renderCal(); }
 
-/* ════════════════════════════════
-   관리자 비밀번호
-════════════════════════════════ */
-const ADMIN_PW = '0990';
-let adminUnlocked = false;
+const ADMIN_PW='0990';
+let adminUnlocked=false;
 
 function checkAdminPw(){
   if(adminUnlocked) return true;
-  const pw = prompt('관리자 비밀번호를 입력하세요');
-  if(pw === null) return false;
-  if(pw === ADMIN_PW){
-    adminUnlocked = true;
-    return true;
-  }
-  toast('비밀번호가 틀렸습니다');
-  return false;
+  const pw=prompt('관리자 비밀번호를 입력하세요');
+  if(pw===null) return false;
+  if(pw===ADMIN_PW){ adminUnlocked=true; return true; }
+  toast('비밀번호가 틀렸습니다'); return false;
 }
-
-function lockAdmin(){
-  adminUnlocked = false;
-  go('home');
-  toast('관리자 잠금됨');
-}
+function lockAdmin(){ adminUnlocked=false; go('home'); toast('관리자 잠금됨'); }
 
 function renderAdmin(){
-  if(!adminUnlocked) return; // 미인증 우회 방지 가드
-  
-  /* 호선 */
+  if(!adminUnlocked) return;
   const hEl=document.getElementById('hoseonList'); hEl.innerHTML='';
   S.hoseons.forEach((h,i)=>{
-    const ii=i;
-    const wrap=document.createElement('div'); wrap.className='aitem';
+    const ii=i; const wrap=document.createElement('div'); wrap.className='aitem';
     const num=document.createElement('span'); num.className='aidx'; num.textContent=ii+1;
-    const inp=document.createElement('input');
-    inp.type='text'; inp.value=h; inp.placeholder='호선 번호'; inp.inputMode='numeric';
-    inp.dataset.idx=ii;
+    const inp=document.createElement('input'); inp.type='text'; inp.value=h; inp.placeholder='호선 번호'; inp.inputMode='numeric'; inp.dataset.idx=ii;
     inp.addEventListener('input',function(){ S.hoseons[parseInt(this.dataset.idx)]=this.value; });
     inp.addEventListener('blur',function(){ S.hoseons[parseInt(this.dataset.idx)]=this.value.trim(); });
     const del=document.createElement('button'); del.className='adel'; del.textContent='×';
     del.addEventListener('click',()=>delHoseon(ii));
     wrap.append(num,inp,del); hEl.appendChild(wrap);
   });
-
-  /* 작업 */
   const tEl=document.getElementById('taskList'); tEl.innerHTML='';
   S.tasks.forEach((t,i)=>{
-    const ii=i;
-    const wrap=document.createElement('div'); wrap.className='aitem';
+    const ii=i; const wrap=document.createElement('div'); wrap.className='aitem';
     const num=document.createElement('span'); num.className='aidx';
     num.style.cssText=`background:${TCOLORS[ii]};color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0`;
     num.textContent=ii+1;
-    const inp=document.createElement('input');
-    inp.type='text'; inp.value=t; inp.placeholder='작업명';
-    inp.dataset.idx=ii;
+    const inp=document.createElement('input'); inp.type='text'; inp.value=t; inp.placeholder='작업명'; inp.dataset.idx=ii;
     inp.addEventListener('input',function(){ S.tasks[parseInt(this.dataset.idx)]=this.value; });
     inp.addEventListener('blur',function(){ S.tasks[parseInt(this.dataset.idx)]=this.value.trim(); });
     const del=document.createElement('button'); del.className='adel'; del.textContent='×';
     del.addEventListener('click',()=>delTask(ii));
     wrap.append(num,inp,del); tEl.appendChild(wrap);
   });
-
-  document.getElementById('taskAddBtn').style.display = S.tasks.length>=10 ? 'none' : '';
+  document.getElementById('taskAddBtn').style.display=S.tasks.length>=10?'none':'';
 }
 
 function addHoseon(){
-  if(!adminUnlocked) { toast('권한이 없습니다.'); return; }
+  if(!adminUnlocked){toast('권한이 없습니다.');return;}
   S.hoseons.push(''); save(); renderAdmin();
   setTimeout(()=>{ const els=document.querySelectorAll('#hoseonList input'); if(els.length) els[els.length-1].focus(); },80);
 }
 function delHoseon(i){
-  if(!adminUnlocked) { toast('권한이 없습니다.'); return; }
-  if(S.hoseons.length<=1){ toast('최소 1개 필요합니다'); return; }
+  if(!adminUnlocked){toast('권한이 없습니다.');return;}
+  if(S.hoseons.length<=1){toast('최소 1개 필요합니다');return;}
   S.hoseons.splice(i,1); save(); renderAdmin();
 }
 function addTask(){
-  if(!adminUnlocked) { toast('권한이 없습니다.'); return; }
-  if(S.tasks.length>=10){ toast('최대 10개까지 가능합니다'); return; }
+  if(!adminUnlocked){toast('권한이 없습니다.');return;}
+  if(S.tasks.length>=10){toast('최대 10개까지 가능합니다');return;}
   S.tasks.push('작업'+(S.tasks.length+1)); save(); renderAdmin();
   setTimeout(()=>{ const els=document.querySelectorAll('#taskList input'); if(els.length) els[els.length-1].focus(); },80);
 }
 function delTask(i){
-  if(!adminUnlocked) { toast('권한이 없습니다.'); return; }
-  if(S.tasks.length<=1){ toast('최소 1개 필요합니다'); return; }
+  if(!adminUnlocked){toast('권한이 없습니다.');return;}
+  if(S.tasks.length<=1){toast('최소 1개 필요합니다');return;}
   S.tasks.splice(i,1); save(); renderAdmin();
 }
 function saveAdmin(){
-  if(!adminUnlocked) { toast('권한이 없습니다.'); return; }
-  S.hoseons = S.hoseons.map(h=>String(h).trim()).filter(Boolean);
+  if(!adminUnlocked){toast('권한이 없습니다.');return;}
+  S.hoseons=S.hoseons.map(h=>String(h).trim()).filter(Boolean);
   if(!S.hoseons.length) S.hoseons=[...DEF_HOSEONS];
-  S.tasks = S.tasks.map(t=>String(t).trim()).filter(Boolean);
+  S.tasks=S.tasks.map(t=>String(t).trim()).filter(Boolean);
   if(!S.tasks.length) S.tasks=[...DEF_TASKS];
   save(); renderAll(); renderAdmin(); toast('저장되었습니다');
 }
 
-/* ════════════════════════════════
-   모달
-════════════════════════════════ */
 function buildModalUI(){
-  /* 호선 */
   const fH=document.getElementById('fHost');
   fH.innerHTML=S.hoseons.map(h=>`<option value="${h}">${h}</option>`).join('');
-
-  /* 대상 탱크 라벨 바인딩 (칩 선택 형태) */
-  const tSel = document.getElementById('tankSelection');
-  tSel.innerHTML = TANKS.map(tk => 
-    `<div class="tank-chip" id="tkc-${tk.replace(' ', '_')}" onclick="selectModalTank('${tk}')">
-      ${tk}
-    </div>`
-  ).join('');
-
-  /* 작업 체크 */
-  document.getElementById('taskChecks').innerHTML=S.tasks.map((t,i)=>
-    `<div class="titem" id="tc${i}" onclick="togTask(${i})">
-       <div class="tchk" id="tck${i}"></div>
-       <span class="tname">${t}</span>
-     </div>`).join('');
-
-  /* 진도율 */
-  document.getElementById('pctChecks').innerHTML=PSTEPS.map(v=>
-    `<div class="pitem" id="pc${v}" onclick="pickPct(${v})">
-       <span class="pval">${v}%</span>
-       <div class="pdot" id="pd${v}"></div>
-     </div>`).join('');
+  const tSel=document.getElementById('tankSelection');
+  tSel.innerHTML=TANKS.map(tk=>`<div class="tank-chip" id="tkc-${tk.replace(' ','_')}" onclick="selectModalTank('${tk}')">${tk}</div>`).join('');
+  document.getElementById('taskChecks').innerHTML=S.tasks.map((t,i)=>`<div class="titem" id="tc${i}" onclick="togTask(${i})"><div class="tchk" id="tck${i}"></div><span class="tname">${t}</span></div>`).join('');
+  document.getElementById('pctChecks').innerHTML=PSTEPS.map(v=>`<div class="pitem" id="pc${v}" onclick="pickPct(${v})"><span class="pval">${v}%</span><div class="pdot" id="pd${v}"></div></div>`).join('');
 }
 
-// 모달 내부 탱크 칩 변경 이벤트
 function selectModalTank(tk){
-  TANKS.forEach(t => {
-    document.getElementById(`tkc-${t.replace(' ', '_')}`)?.classList.remove('on');
-  });
-  window._selTank = tk;
-  document.getElementById(`tkc-${tk.replace(' ', '_')}`)?.classList.add('on');
+  TANKS.forEach(t=>{document.getElementById(`tkc-${t.replace(' ','_')}`)?.classList.remove('on');});
+  window._selTank=tk;
+  document.getElementById(`tkc-${tk.replace(' ','_')}`)?.classList.add('on');
   updatePrev();
 }
-
 function togTask(i){
   const it=document.getElementById('tc'+i), ck=document.getElementById('tck'+i);
-  const on=it.classList.toggle('on');
-  ck.textContent=on?'✓':'';
-  updatePrev();
+  const on=it.classList.toggle('on'); ck.textContent=on?'✓':''; updatePrev();
 }
 function pickPct(v){
-  PSTEPS.forEach(s=>{ document.getElementById('pc'+s)?.classList.remove('on'); });
-  window._selPct=v;
-  document.getElementById('pc'+v)?.classList.add('on');
-  updatePrev();
+  PSTEPS.forEach(s=>{document.getElementById('pc'+s)?.classList.remove('on');}); window._selPct=v; document.getElementById('pc'+v)?.classList.add('on'); updatePrev();
 }
-
-// 입력 내용 실시간 탱크 예측치 미리보기 구현 (최종값 반영형 수치 예측 계산)
 function updatePrev(){
   const h=document.getElementById('fHost').value;
-  const tk=window._selTank || '1 tank';
+  const tk=window._selTank||'1 tank';
   const picked=S.tasks.filter((_,i)=>document.getElementById('tc'+i)?.classList.contains('on'));
   const pct=window._selPct||0;
-  
-  if(!picked.length||!pct){ 
-    document.getElementById('pvBox').textContent = '작업과 진도율을 선택하면 탱크별 미리보기가 표시됩니다.'; 
-    return; 
-  }
-  
-  // 기존 탱크 평균
-  const exTankAvg = getTankAvg(h, tk, S.editIdx!==null?S.editIdx:-1);
-  
-  // 가상 변경치 반영 탱크 평균 연산 (누적 합산이 아닌 입력된 최종치로 교환)
-  let virtualTotal = 0;
-  S.tasks.forEach(t => {
-    let taskVal = 0;
-    if (picked.includes(t)) {
-      taskVal = pct; // 해당 작업을 새로운 최종 값으로 덮어씀
-    } else {
-      taskVal = getTankTaskCum(h, tk, t, S.editIdx!==null?S.editIdx:-1);
-    }
-    virtualTotal += taskVal;
-  });
-  const afTankAvg = Math.round(virtualTotal / S.tasks.length);
-  
-  const lines = picked.map(t => {
-    const exTaskVal = getTankTaskCum(h, tk, t, S.editIdx!==null?S.editIdx:-1);
-    return ` - ${t}: 기존 ${exTaskVal}% → 최종 ${pct}%`;
-  });
-  
-  document.getElementById('pvBox').textContent = 
-    `대상: ${h}호선 [${tk}]\n` +
-    `선택 작업 상태 변화:\n${lines.join('\n')}\n` +
-    `탱크 전체 진척률 변화:\n ${exTankAvg}% → ${afTankAvg}% ${afTankAvg>100?'(수량 초과!)':'(정상)'}`;
+  if(!picked.length||!pct){ document.getElementById('pvBox').textContent='작업과 진도율을 선택하면 탱크별 미리보기가 표시됩니다.'; return; }
+  const exTankAvg=getTankAvg(h,tk,S.editIdx!==null?S.editIdx:-1);
+  let virtualTotal=0;
+  S.tasks.forEach(t=>{ virtualTotal+=picked.includes(t)?pct:getTankTaskCum(h,tk,t,S.editIdx!==null?S.editIdx:-1); });
+  const afTankAvg=Math.round(virtualTotal/S.tasks.length);
+  const lines=picked.map(t=>` - ${t}: 기존 ${getTankTaskCum(h,tk,t,S.editIdx!==null?S.editIdx:-1)}% → 최종 ${pct}%`);
+  document.getElementById('pvBox').textContent=`대상: ${h}호선 [${tk}]\n선택 작업 상태 변화:\n${lines.join('\n')}\n탱크 전체 진척률 변화:\n ${exTankAvg}% → ${afTankAvg}% ${afTankAvg>100?'(수량 초과!)':'(정상)'}`;
 }
 
 function openModal(idx){
-  S.editIdx=(idx!==undefined)?idx:null;
-  window._selPct=0;
-  window._selTank='1 tank'; // 기본 탱크 선택
-  
+  S.editIdx=(idx!==undefined)?idx:null; window._selPct=0; window._selTank='1 tank';
   document.getElementById('mTitle').textContent=S.editIdx!==null?'작업 수정':'작업 입력';
   buildModalUI();
-  
   if(S.editIdx!==null){
     const e=S.entries[S.editIdx];
     document.getElementById('fDate').value=e.date;
@@ -1139,14 +785,9 @@ function openModal(idx){
     document.getElementById('fWorkers').value=e.workers||'';
     document.getElementById('fHours').value=e.hours||'';
     document.getElementById('fNote').value=e.note||'';
-    
-    window._selTank = e.tank || '1 tank';
-    
-    (e.tasks||[e.task||'']).forEach(t=>{
-      const i=S.tasks.indexOf(t);
-      if(i>=0){ document.getElementById('tc'+i)?.classList.add('on'); const ck=document.getElementById('tck'+i); if(ck) ck.textContent='✓'; }
-    });
-    if(e.pct && PSTEPS.includes(e.pct)){ window._selPct=e.pct; document.getElementById('pc'+e.pct)?.classList.add('on'); }
+    window._selTank=e.tank||'1 tank';
+    (e.tasks||[e.task||'']).forEach(t=>{ const i=S.tasks.indexOf(t); if(i>=0){ document.getElementById('tc'+i)?.classList.add('on'); const ck=document.getElementById('tck'+i); if(ck) ck.textContent='✓'; } });
+    if(e.pct&&PSTEPS.includes(e.pct)){ window._selPct=e.pct; document.getElementById('pc'+e.pct)?.classList.add('on'); }
   } else {
     document.getElementById('fDate').value=S.selDay||getLocalDateStr();
     document.getElementById('fHost').value=S.activeHoseon||S.hoseons[0]||'';
@@ -1154,37 +795,27 @@ function openModal(idx){
     document.getElementById('fHours').value='';
     document.getElementById('fNote').value='';
   }
-  
-  // 모달 칩 상태 동기화
   selectModalTank(window._selTank);
-  
   document.getElementById('modal').classList.add('on');
   document.body.style.overflow='hidden';
 }
-function closeModal(){
-  document.getElementById('modal').classList.remove('on');
-  document.body.style.overflow='';
-}
+function closeModal(){ document.getElementById('modal').classList.remove('on'); document.body.style.overflow=''; }
 document.getElementById('modal').addEventListener('click',e=>{ if(e.target===document.getElementById('modal')) closeModal(); });
 
 function saveEntry(){
   const date=document.getElementById('fDate').value;
   const hoseon=document.getElementById('fHost').value;
-  const tank=window._selTank || '1 tank';
+  const tank=window._selTank||'1 tank';
   const tasks=S.tasks.filter((_,i)=>document.getElementById('tc'+i)?.classList.contains('on'));
   const pct=window._selPct||0;
   const workers=document.getElementById('fWorkers').value;
   const hours=document.getElementById('fHours').value;
   const note=document.getElementById('fNote').value;
-  
-  if(!date){ toast('날짜를 선택해주세요'); return; }
-  if(!tasks.length){ toast('작업을 선택해주세요'); return; }
-  if(!pct){ toast('진도율을 선택해주세요'); return; }
-  
+  if(!date){toast('날짜를 선택해주세요');return;}
+  if(!tasks.length){toast('작업을 선택해주세요');return;}
+  if(!pct){toast('진도율을 선택해주세요');return;}
   const entry={date,hoseon,tank,tasks,pct,workers,hours,note};
-  if(S.editIdx!==null) S.entries[S.editIdx]=entry;
-  else S.entries.push(entry);
-  
+  if(S.editIdx!==null) S.entries[S.editIdx]=entry; else S.entries.push(entry);
   save(); closeModal(); renderAll(); toast('저장되었습니다');
   if(S.selDay===date) renderCalDetail(date);
 }
@@ -1193,365 +824,223 @@ function delEntry(idx){
   S.entries.splice(idx,1); save(); renderAll(); toast('삭제되었습니다');
 }
 
-/* ════════════════════════════════
-   구글 시트 연동 (CORS 프리플라이트 우회 및 실제 상태 트래킹 구현)
-════════════════════════════════ */
-function saveConf(){
-  S.conf.url=document.getElementById('gsUrl').value;
-  S.conf.sheet=document.getElementById('gsSheet').value||'호선관리';
-  save();
-}
+function saveConf(){ S.conf.url=document.getElementById('gsUrl').value; S.conf.sheet=document.getElementById('gsSheet').value||'호선관리'; save(); }
 
 async function syncSheet(){
-  if(!S.conf.url){ toast('URL을 먼저 설정하세요'); go('sheet'); return; }
+  if(!S.conf.url){toast('URL을 먼저 설정하세요');go('sheet');return;}
   toast('동기화 중...');
-  
   const mr=[['호선','탱크',...S.tasks,'탱크 평균']];
-  S.hoseons.forEach(h=>{ 
-    TANKS.forEach(tk => {
-      const v=S.tasks.map(t=>getTankTaskCum(h,tk,t)); 
-      mr.push([h,tk,...v,getTankAvg(h,tk)+'%']); 
-    });
-  });
-  
+  S.hoseons.forEach(h=>{ TANKS.forEach(tk=>{ const v=S.tasks.map(t=>getTankTaskCum(h,tk,t)); mr.push([h,tk,...v,getTankAvg(h,tk)+'%']); }); });
   const lr=[['날짜','호선','탱크','작업','진도율(%)','작업인원','총시수','메모'],
     ...S.entries.flatMap(e=>(e.tasks||[e.task||'']).map(t=>[e.date,e.hoseon,e.tank||'1 tank',t,e.pct,e.workers||'',e.hours||'',e.note||'']))];
-  
-  try{ 
-    // mode: 'no-cors'를 제거하고 plain text 형태로 전송하여 크로스 도메인 및 302 리다이렉트 완전 트래킹
-    const response = await fetch(S.conf.url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'text/plain;charset=utf-8'
-      },
-      body: JSON.stringify({sheet:S.conf.sheet,masterRows:mr,logRows:lr})
-    });
-    
-    // 응답 텍스트 파싱
-    const resText = await response.text();
-    const resJson = JSON.parse(resText);
-    
-    if (resJson && resJson.ok) {
-      toast('구글 스프레드시트에 저장되었습니다!');
-    } else {
-      toast('저장 실패: ' + ((resJson && resJson.error) || '알 수 없는 오류'));
-    }
-  }
-  catch(err){ 
-    console.error(err);
-    // 구글 웹앱 리다이렉트로 인해 브라우저 단에서 CORS 예외가 잡혔을 수 있으므로 검증 안내를 상세화합니다.
-    toast('전송 오류 발생! 웹앱 URL 및 권한 설정을 확인하세요.'); 
-  }
+  try{
+    const response=await fetch(S.conf.url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({sheet:S.conf.sheet,masterRows:mr,logRows:lr})});
+    const resText=await response.text(); const resJson=JSON.parse(resText);
+    if(resJson&&resJson.ok){toast('구글 스프레드시트에 저장되었습니다!');}else{toast('저장 실패: '+((resJson&&resJson.error)||'알 수 없는 오류'));}
+  }catch(err){console.error(err);toast('전송 오류 발생! 웹앱 URL 및 권한 설정을 확인하세요.');}
 }
 
 function loadFromSheet(){
-  if(!S.conf.url){ toast('URL을 먼저 설정하세요'); return; }
+  if(!S.conf.url){toast('URL을 먼저 설정하세요');return;}
   toast('불러오는 중...');
-  const url = S.conf.url + '?action=load&sheet=' + encodeURIComponent(S.conf.sheet);
-  fetch(url)
+  fetch(S.conf.url+'?action=load&sheet='+encodeURIComponent(S.conf.sheet))
     .then(r=>r.json())
     .then(data=>{
-      if(!data.ok){ toast('불러오기 실패: ' + (data.error||'오류')); return; }
-      if(data.hoseons && data.hoseons.length) S.hoseons = data.hoseons;
-      if(data.tasks   && data.tasks.length)   S.tasks   = data.tasks;
-      if(data.entries && data.entries.length)  S.entries = data.entries;
-      save(); renderAll(); toast('불러오기 완료! ' + (data.entries||[]).length + '건');
+      if(!data.ok){toast('불러오기 실패: '+(data.error||'오류'));return;}
+      if(data.hoseons&&data.hoseons.length) S.hoseons=data.hoseons;
+      if(data.tasks&&data.tasks.length) S.tasks=data.tasks;
+      if(data.entries&&data.entries.length) S.entries=data.entries;
+      save(); renderAll(); toast('불러오기 완료! '+(data.entries||[]).length+'건');
     })
     .catch(()=>toast('불러오기 실패 — URL 및 시트 설정 확인'));
 }
 
 function importCSVPopup(){
-  const overlay = document.createElement('div');
+  const overlay=document.createElement('div');
   overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;display:flex;align-items:flex-end;justify-content:center';
-  const box = document.createElement('div');
+  const box=document.createElement('div');
   box.style.cssText='background:var(--bg);border-radius:16px 16px 0 0;padding:20px;width:100%;max-width:540px;display:flex;flex-direction:column;gap:12px';
-
-  box.innerHTML=`
-    <div style="font-size:15px;font-weight:700">CSV 불러오기</div>
+  box.innerHTML=`<div style="font-size:15px;font-weight:700">CSV 불러오기</div>
     <div style="font-size:12px;color:var(--text2)">내보낸 CSV 파일을 선택하면 일지 데이터를 불러옵니다.<br>현재 데이터에 추가됩니다 (중복 제거).</div>
     <input type="file" id="csvFileInput" accept=".csv" style="padding:10px;border:0.5px solid var(--border2);border-radius:8px;font-size:13px;background:var(--bg);color:var(--text)">
     <div style="display:flex;gap:8px">
       <button id="csvImportBtn" style="flex:2;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer">불러오기</button>
       <button onclick="this.closest('[style*=fixed]').remove()" style="flex:1;padding:13px;background:none;border:0.5px solid var(--border2);border-radius:12px;font-size:14px;font-weight:600;font-family:inherit;color:var(--text);cursor:pointer">취소</button>
     </div>`;
-
   overlay.appendChild(box);
-  overlay.addEventListener('click',e=>{ if(e.target===overlay) overlay.remove(); });
+  overlay.addEventListener('click',e=>{if(e.target===overlay) overlay.remove();});
   document.body.appendChild(overlay);
-
   document.getElementById('csvImportBtn').addEventListener('click',()=>{
-    const file = document.getElementById('csvFileInput').files[0];
-    if(!file){ toast('파일을 선택하세요'); return; }
-    const reader = new FileReader();
-    reader.onload = e => {
-      parseAndImportCSV(e.target.result);
-      overlay.remove();
-    };
-    reader.readAsText(file, 'UTF-8');
+    const file=document.getElementById('csvFileInput').files[0];
+    if(!file){toast('파일을 선택하세요');return;}
+    const reader=new FileReader();
+    reader.onload=e=>{parseAndImportCSV(e.target.result);overlay.remove();};
+    reader.readAsText(file,'UTF-8');
   });
 }
 
 function parseAndImportCSV(text){
   if(text.charCodeAt(0)===0xFEFF) text=text.slice(1);
-  const lines = text.split('\n').map(l=>l.trim()).filter(Boolean);
-  let added=0, skipped=0;
-  let inLog=false;
+  const lines=text.split('\n').map(l=>l.trim()).filter(Boolean);
+  let added=0,skipped=0,inLog=false;
   const newEntries=[];
-
   for(let i=0;i<lines.length;i++){
-    const row = parseCSVLine(lines[i]);
+    const row=parseCSVLine(lines[i]);
     if(!row.length) continue;
-    if(row[0]==='날짜'&&row[1]==='호선') { inLog=true; continue; }
-    if(row[0]==='=== 호선별 누적 집계 ===') { inLog=false; continue; }
+    if(row[0]==='날짜'&&row[1]==='호선'){inLog=true;continue;}
+    if(row[0]==='=== 호선별 누적 집계 ==='){inLog=false;continue;}
     if(!inLog) continue;
-    
-    let [date,hoseon,tank,task,pct,workers,hours,note] = row;
+    let [date,hoseon,tank,task,pct,workers,hours,note]=row;
     if(!date||!hoseon) continue;
-    
-    // 이전 탱크 컬럼이 없는 구식 CSV 포맷 호환용 구조 보정
-    if(!TANKS.includes(tank) && S.tasks.includes(tank)) {
-      note = hours;
-      hours = workers;
-      workers = pct;
-      pct = task;
-      task = tank;
-      tank = '1 tank';
-    }
-
-    const dup = S.entries.some(e=>
-      e.date===date && e.hoseon===hoseon &&
-      (e.tank||'1 tank')===tank &&
-      (e.tasks||[e.task||'']).includes(task) &&
-      String(e.pct)===String(pct)
-    );
-    if(dup){ skipped++; continue; }
+    if(!TANKS.includes(tank)&&S.tasks.includes(tank)){note=hours;hours=workers;workers=pct;pct=task;task=tank;tank='1 tank';}
+    const dup=S.entries.some(e=>e.date===date&&e.hoseon===hoseon&&(e.tank||'1 tank')===tank&&(e.tasks||[e.task||'']).includes(task)&&String(e.pct)===String(pct));
+    if(dup){skipped++;continue;}
     if(!S.hoseons.includes(hoseon)) S.hoseons.push(hoseon);
     if(!S.tasks.includes(task)) S.tasks.push(task);
-    newEntries.push({
-      date, hoseon, tank, tasks:[task],
-      pct:parseInt(pct)||0,
-      workers:workers||'', hours:hours||'', note:note||''
-    });
+    newEntries.push({date,hoseon,tank,tasks:[task],pct:parseInt(pct)||0,workers:workers||'',hours:hours||'',note:note||''});
     added++;
   }
   S.entries.push(...newEntries);
-  save(); renderAll();
-  toast(`불러오기 완료: ${added}건 추가, ${skipped}건 중복 제외`);
+  save(); renderAll(); toast(`불러오기 완료: ${added}건 추가, ${skipped}건 중복 제외`);
 }
 
 function parseCSVLine(line){
-  const result=[]; let cur=''; let inQ=false;
+  const result=[];let cur='';let inQ=false;
   for(let i=0;i<line.length;i++){
     const ch=line[i];
-    if(ch==='"'){
-      if(inQ&&line[i+1]==='"'){ cur+='"'; i++; }
-      else inQ=!inQ;
-    } else if(ch===','&&!inQ){
-      result.push(cur); cur='';
-    } else cur+=ch;
+    if(ch==='"'){if(inQ&&line[i+1]==='"'){cur+='"';i++;}else inQ=!inQ;}
+    else if(ch===','&&!inQ){result.push(cur);cur='';}
+    else cur+=ch;
   }
-  result.push(cur);
-  return result;
+  result.push(cur); return result;
 }
 
 function exportCSV(){
   const rows=[['날짜','호선','탱크','작업','진도율(%)','작업인원(명)','총시수(H)','메모']];
   S.entries.forEach(e=>(e.tasks||[e.task||'']).forEach(t=>rows.push([e.date,e.hoseon,e.tank||'1 tank',t,e.pct,e.workers||'',e.hours||'',e.note||''])));
   rows.push([],['=== 호선별 누적 집계 ==='],['호선','탱크',...S.tasks,'전체 탱크평균']);
-  S.hoseons.forEach(h=>{ 
-    TANKS.forEach(tk => {
-      const v=S.tasks.map(t=>getTankTaskCum(h,tk,t)); 
-      rows.push([h,tk,...v,getTankAvg(h,tk)+'%']); 
-    });
-  });
-  
+  S.hoseons.forEach(h=>{TANKS.forEach(tk=>{const v=S.tasks.map(t=>getTankTaskCum(h,tk,t));rows.push([h,tk,...v,getTankAvg(h,tk)+'%']);});});
   const csv='\uFEFF'+rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
   const fname=`hoseon_${new Date().toISOString().slice(0,10)}.csv`;
-
-  const isPWA = window.navigator.standalone === true;
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-  if(isPWA || isIOS){
-    const blob = new Blob([csv], {type:'text/csv;charset=utf-8'});
-    const file = new File([blob], fname, {type:'text/csv'});
-    if(navigator.canShare && navigator.canShare({files:[file]})){
-      navigator.share({files:[file], title:'호선관리 데이터', text:'CSV 파일'})
-        .then(()=>toast('공유 완료!'))
-        .catch(()=>showCSVPopup(csv));
-      return;
+  const isPWA=window.navigator.standalone===true;
+  const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;
+  if(isPWA||isIOS){
+    const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
+    const file=new File([blob],fname,{type:'text/csv'});
+    if(navigator.canShare&&navigator.canShare({files:[file]})){
+      navigator.share({files:[file],title:'호선관리 데이터',text:'CSV 파일'}).then(()=>toast('공유 완료!')).catch(()=>showCSVPopup(csv)); return;
     }
-    showCSVPopup(csv);
-    return;
+    showCSVPopup(csv); return;
   }
-
   try{
     const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
     const a=document.createElement('a'); a.href=url; a.download=fname;
     document.body.appendChild(a); a.click();
-    setTimeout(()=>{ URL.revokeObjectURL(url); document.body.removeChild(a); },1000);
+    setTimeout(()=>{URL.revokeObjectURL(url);document.body.removeChild(a);},1000);
     toast('CSV 다운로드 완료');
-  }catch(e){
-    showCSVPopup(csv);
-  }
+  }catch(e){showCSVPopup(csv);}
 }
 
 function showCSVPopup(csv){
-  const existing = document.getElementById('csvPopup');
-  if(existing) existing.remove();
-
-  const overlay = document.createElement('div');
-  overlay.id = 'csvPopup';
-  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;display:flex;align-items:flex-end;justify-content:center';
-
-  const box = document.createElement('div');
-  box.style.cssText = 'background:var(--bg);border-radius:16px 16px 0 0;padding:20px;width:100%;max-width:540px;max-height:70vh;display:flex;flex-direction:column;gap:12px';
-
-  const title = document.createElement('div');
-  title.style.cssText = 'font-size:15px;font-weight:700;color:var(--text)';
-  title.textContent = 'CSV 데이터';
-
-  const desc = document.createElement('div');
-  desc.style.cssText = 'font-size:12px;color:var(--text2)';
-  desc.textContent = '아래 내용을 전체 선택 → 복사 후 메모 앱이나 엑셀에 붙여넣기 하세요.';
-
-  const ta = document.createElement('textarea');
-  ta.value = csv;
-  ta.readOnly = true;
-  ta.style.cssText = 'flex:1;min-height:160px;max-height:40vh;padding:10px;border:0.5px solid var(--border2);border-radius:8px;font-size:10px;font-family:monospace;background:var(--bg2);color:var(--text);resize:none;-webkit-user-select:text;user-select:text';
-
-  const btnRow = document.createElement('div');
-  btnRow.style.cssText = 'display:flex;gap:8px';
-
-  const copyBtn = document.createElement('button');
-  copyBtn.textContent = '전체 복사';
-  copyBtn.style.cssText = 'flex:2;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer';
-  copyBtn.onclick = () => {
-    ta.select();
-    try{
-      navigator.clipboard.writeText(csv).then(()=>{ toast('복사 완료!'); overlay.remove(); })
-        .catch(()=>{ document.execCommand('copy'); toast('복사 완료!'); overlay.remove(); });
-    }catch(e){ document.execCommand('copy'); toast('복사 완료!'); overlay.remove(); }
-  };
-
-  const closeBtn = document.createElement('button');
-  closeBtn.textContent = '닫기';
-  closeBtn.style.cssText = 'flex:1;padding:13px;background:none;color:var(--text);border:0.5px solid var(--border2);border-radius:12px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer';
-  closeBtn.onclick = () => overlay.remove();
-
-  btnRow.append(copyBtn, closeBtn);
-  box.append(title, desc, ta, btnRow);
-  overlay.appendChild(box);
-  overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.remove(); });
-  document.body.appendChild(overlay);
-
-  setTimeout(()=>{ ta.focus(); ta.select(); }, 100);
+  const existing=document.getElementById('csvPopup'); if(existing) existing.remove();
+  const overlay=document.createElement('div');
+  overlay.id='csvPopup';
+  overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;display:flex;align-items:flex-end;justify-content:center';
+  const box=document.createElement('div');
+  box.style.cssText='background:var(--bg);border-radius:16px 16px 0 0;padding:20px;width:100%;max-width:540px;max-height:70vh;display:flex;flex-direction:column;gap:12px';
+  const title=document.createElement('div'); title.style.cssText='font-size:15px;font-weight:700;color:var(--text)'; title.textContent='CSV 데이터';
+  const desc=document.createElement('div'); desc.style.cssText='font-size:12px;color:var(--text2)'; desc.textContent='아래 내용을 전체 선택 → 복사 후 메모 앱이나 엑셀에 붙여넣기 하세요.';
+  const ta=document.createElement('textarea'); ta.value=csv; ta.readOnly=true;
+  ta.style.cssText='flex:1;min-height:160px;max-height:40vh;padding:10px;border:0.5px solid var(--border2);border-radius:8px;font-size:10px;font-family:monospace;background:var(--bg2);color:var(--text);resize:none;-webkit-user-select:text;user-select:text';
+  const btnRow=document.createElement('div'); btnRow.style.cssText='display:flex;gap:8px';
+  const copyBtn=document.createElement('button'); copyBtn.textContent='전체 복사';
+  copyBtn.style.cssText='flex:2;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer';
+  copyBtn.onclick=()=>{ ta.select(); try{ navigator.clipboard.writeText(csv).then(()=>{toast('복사 완료!');overlay.remove();}).catch(()=>{document.execCommand('copy');toast('복사 완료!');overlay.remove();}); }catch(e){document.execCommand('copy');toast('복사 완료!');overlay.remove();} };
+  const closeBtn=document.createElement('button'); closeBtn.textContent='닫기';
+  closeBtn.style.cssText='flex:1;padding:13px;background:none;color:var(--text);border:0.5px solid var(--border2);border-radius:12px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer';
+  closeBtn.onclick=()=>overlay.remove();
+  btnRow.append(copyBtn,closeBtn); box.append(title,desc,ta,btnRow); overlay.appendChild(box);
+  overlay.addEventListener('click',e=>{if(e.target===overlay) overlay.remove();});
+  document.body.appendChild(overlay); setTimeout(()=>{ta.focus();ta.select();},100);
 }
 
-/* ════════════════════════════════
-   시뮬레이션 / 초기화
-════════════════════════════════ */
+/* ════ 시뮬레이션 / 초기화 ★ BUG FIX ★ ════ */
 function injectDemo(){
   if(!confirm('현재 데이터를 모두 지우고\n2026년 4월 탱크 분리 시뮬레이션 데이터를 불러올까요?')) return;
   S.hoseons=['2665','2666','2667'];
   S.tasks=['굴착','배관','전기','콘크리트','방수','마감'];
-  
   const raw=[
-    // 2665호선 1 tank 작업 현황
     [1,'2665','1 tank',['굴착'],100,4,32,'1탱크 굴착 공정 완료'],
     [2,'2665','1 tank',['배관'],80,4,32,'배관 라인 용접'],
     [3,'2665','1 tank',['전기'],60,5,40,'케이블 포설 작업'],
     [4,'2665','1 tank',['콘크리트'],40,5,40,''],
-    // 2665호선 2 tank 작업 현황
     [5,'2665','2 tank',['굴착'],100,6,48,'2탱크 굴착 공정 완료'],
     [7,'2665','2 tank',['배관'],50,4,32,''],
     [8,'2665','2 tank',['전기'],30,5,40,''],
-    // 2665호선 3 tank 작업 현황
     [9,'2665','3 tank',['굴착'],70,6,48,'3탱크 암반 구간 굴착'],
     [10,'2665','3 tank',['배관'],20,5,40,''],
-    // 2665호선 4 tank 작업 현황
     [11,'2665','4 tank',['굴착'],30,4,32,'4탱크 선행 굴착 착수'],
-
-    // 2666호선 작업 현황
     [1,'2666','1 tank',['굴착'],100,3,24,''],
     [3,'2666','1 tank',['배관'],100,3,24,''],
     [5,'2666','1 tank',['전기'],50,4,32,''],
     [7,'2666','2 tank',['굴착'],90,4,32,''],
     [8,'2666','2 tank',['배관'],30,3,24,''],
-    
-    // 2667호선 작업 현황
     [8,'2667','1 tank',['굴착'],60,3,24,'후행 건조 작업 착수'],
     [10,'2667','1 tank',['배관'],10,3,24,''],
   ];
-  
-  S.entries=raw.map(r=>({
-    date:`2026-04-${String(r[0]).padStart(2,'0')}`,
-    hoseon:r[1], tank:r[2], tasks:r[3], pct:r[4],
-    workers:String(r[4]), hours:String(r[5]), note:r[6]
-  }));
-  
-  S.calY=2026; S.calM=3; S.selDay=null;
-  S.activeHoseon='2665';
-  
+  S.entries=raw.map(r=>({date:`2026-04-${String(r[0]).padStart(2,'0')}`,hoseon:r[1],tank:r[2],tasks:r[3],pct:r[4],workers:String(r[4]),hours:String(r[5]),note:r[6]}));
+  S.calY=2026; S.calM=3; S.selDay=null; S.activeHoseon='2665';
+
+  // [BUG FIX] 데이터 교체 시 일지 필터 캐시 초기화
+  resetLogFilters();
+
   save(); renderAll(); go('home'); toast('시뮬레이션 데이터 로드 완료!');
 }
+
 function clearAll(){
   if(!confirm('모든 입력 데이터를 초기화할까요?')) return;
-  S.entries=[]; S.selDay=null;
+  S.entries=[];
+  S.selDay=null;
+  S.activeHoseon='';
+
+  // [BUG FIX] 초기화 시 일지 필터 캐시도 함께 리셋
+  // 삭제 후 일지 탭에 이전 데이터가 잔류하는 버그 완전 제거
+  resetLogFilters();
+
   save(); renderAll(); toast('초기화 완료');
 }
 
-/* ════════════════════════════════
-   토스트
-════════════════════════════════ */
 function toast(msg){
   const el=document.getElementById('toastEl');
   el.textContent=msg; el.classList.add('on');
   setTimeout(()=>el.classList.remove('on'),2200);
 }
 
-/* ════════════════════════════════
-   Apps Script 코드 (예외 방어 가드 시스템 추가 버전)
-════════════════════════════════ */
 function setScript(){
   document.getElementById('scriptPre').textContent=
 `function doPost(e) {
   try {
-    // 1. 에디터에서 직접 "실행" 버튼 수동 클릭 시 발생하는 crash 방어
     if (!e || !e.postData || !e.postData.contents) {
       Logger.log("웹브라우저의 요청이 아닌 수동 실행 테스트 감지됨.");
       return ContentService
-        .createTextOutput(JSON.stringify({ok:false, error:'이 함수는 수동으로 실행할 수 없습니다. 웹앱에서 데이터를 보냈을 때 정상 구동됩니다.'}))
+        .createTextOutput(JSON.stringify({ok:false, error:'이 함수는 수동으로 실행할 수 없습니다.'}))
         .setMimeType(ContentService.MimeType.JSON);
     }
-    
     const data = JSON.parse(e.postData.contents);
     const ss = SpreadsheetApp.getActiveSpreadsheet();
-    
-    // 2. 바인딩되지 않은 Standalone 스크립트 실행 방지 가드
     if (!ss) {
       return ContentService
-        .createTextOutput(JSON.stringify({ok:false, error:'스프레드시트를 열 수 없습니다. 시트 내의 [확장 프로그램 -> Apps Script] 메뉴를 통해 생성되었는지 재확인하세요.'}))
+        .createTextOutput(JSON.stringify({ok:false, error:'스프레드시트를 열 수 없습니다.'}))
         .setMimeType(ContentService.MimeType.JSON);
     }
-
-    const ms = ss.getSheetByName(data.sheet+'_마스터')
-             || ss.insertSheet(data.sheet+'_마스터');
-    ms.clearContents();
-    data.masterRows.forEach(r => ms.appendRow(r));
-    
-    const ls = ss.getSheetByName(data.sheet+'_일지')
-             || ss.insertSheet(data.sheet+'_일지');
-    ls.clearContents();
-    data.logRows.forEach(r => ls.appendRow(r));
-    
-    return ContentService
-      .createTextOutput(JSON.stringify({ok:true}))
-      .setMimeType(ContentService.MimeType.JSON);
+    const ms = ss.getSheetByName(data.sheet+'_마스터') || ss.insertSheet(data.sheet+'_마스터');
+    ms.clearContents(); data.masterRows.forEach(r => ms.appendRow(r));
+    const ls = ss.getSheetByName(data.sheet+'_일지') || ss.insertSheet(data.sheet+'_일지');
+    ls.clearContents(); data.logRows.forEach(r => ls.appendRow(r));
+    return ContentService.createTextOutput(JSON.stringify({ok:true})).setMimeType(ContentService.MimeType.JSON);
   } catch(err) {
     Logger.log("오류 발생: " + err.toString());
-    return ContentService
-      .createTextOutput(JSON.stringify({ok:false, error: err.toString()}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(JSON.stringify({ok:false, error: err.toString()})).setMimeType(ContentService.MimeType.JSON);
   }
 }
 
@@ -1561,86 +1050,41 @@ function doGet(e) {
     if(p.action === 'load'){
       const ss = SpreadsheetApp.getActiveSpreadsheet();
       const sheetName = p.sheet || '호선관리';
-
       const ls = ss.getSheetByName(sheetName + '_일지');
-      if(!ls) return ContentService
-        .createTextOutput(JSON.stringify({ok:false,error:'시트 데이터가 없습니다. 먼저 저장해 주세요.'}))
-        .setMimeType(ContentService.MimeType.JSON);
-
+      if(!ls) return ContentService.createTextOutput(JSON.stringify({ok:false,error:'시트 데이터가 없습니다. 먼저 저장해 주세요.'})).setMimeType(ContentService.MimeType.JSON);
       const rows = ls.getDataRange().getValues();
-      const entries = [];
-      const hoseons = new Set();
-      const tasks = new Set();
-
+      const entries = [], hoseons = new Set(), tasks = new Set();
       if (rows.length > 1) {
         const headers = rows[0].map(function(h) { return String(h).trim(); });
-        const dateIdx = headers.indexOf('날짜');
-        const hoseonIdx = headers.indexOf('호선');
-        const tankIdx = headers.indexOf('탱크');
-        const taskIdx = headers.indexOf('작업');
-        const pctIdx = headers.indexOf('진도율(%)');
-        const workersIdx = headers.indexOf('작업인원') !== -1 ? headers.indexOf('작업인원') : headers.indexOf('작업인원(명)');
-        const hoursIdx = headers.indexOf('총시수') !== -1 ? headers.indexOf('총시수') : headers.indexOf('총시수(H)');
-        const noteIdx = headers.indexOf('메모');
-
+        const dateIdx=headers.indexOf('날짜'), hoseonIdx=headers.indexOf('호선'), tankIdx=headers.indexOf('탱크'), taskIdx=headers.indexOf('작업'), pctIdx=headers.indexOf('진도율(%)');
+        const workersIdx=headers.indexOf('작업인원')!==-1?headers.indexOf('작업인원'):headers.indexOf('작업인원(명)');
+        const hoursIdx=headers.indexOf('총시수')!==-1?headers.indexOf('총시수'):headers.indexOf('총시수(H)');
+        const noteIdx=headers.indexOf('메모');
         for(let i=1;i<rows.length;i++){
-          const r = rows[i];
-          const dateVal = dateIdx !== -1 ? r[dateIdx] : "";
-          const hoseonVal = hoseonIdx !== -1 ? String(r[hoseonIdx]).trim() : "";
-          const tankVal = tankIdx !== -1 ? String(r[tankIdx]).trim() : "1 tank";
-          const taskVal = taskIdx !== -1 ? String(r[taskIdx]).trim() : "";
-          const pctVal = pctIdx !== -1 ? parseInt(r[pctIdx]) || 0 : 0;
-          const workersVal = workersIdx !== -1 ? String(r[workersIdx]).trim() : "";
-          const hoursVal = hoursIdx !== -1 ? String(r[hoursIdx]).trim() : "";
-          const noteVal = noteIdx !== -1 ? String(r[noteIdx]).trim() : "";
-
-          if(!dateVal || !hoseonVal) continue;
-          const ds = dateVal instanceof Date
-            ? Utilities.formatDate(dateVal, Session.getScriptTimeZone(), 'yyyy-MM-dd')
-            : String(dateVal).trim();
-            
-          if(hoseonVal) hoseons.add(hoseonVal);
-          if(taskVal) tasks.add(taskVal);
-          
-          entries.push({
-            date: ds,
-            hoseon: hoseonVal,
-            tank: tankVal,
-            tasks: [taskVal],
-            pct: pctVal,
-            workers: workersVal,
-            hours: hoursVal,
-            note: noteVal
-          });
+          const r=rows[i];
+          const dateVal=dateIdx!==-1?r[dateIdx]:"", hoseonVal=hoseonIdx!==-1?String(r[hoseonIdx]).trim():"";
+          const tankVal=tankIdx!==-1?String(r[tankIdx]).trim():"1 tank", taskVal=taskIdx!==-1?String(r[taskIdx]).trim():"";
+          const pctVal=pctIdx!==-1?parseInt(r[pctIdx])||0:0;
+          const workersVal=workersIdx!==-1?String(r[workersIdx]).trim():"", hoursVal=hoursIdx!==-1?String(r[hoursIdx]).trim():"", noteVal=noteIdx!==-1?String(r[noteIdx]).trim():"";
+          if(!dateVal||!hoseonVal) continue;
+          const ds=dateVal instanceof Date?Utilities.formatDate(dateVal,Session.getScriptTimeZone(),'yyyy-MM-dd'):String(dateVal).trim();
+          if(hoseonVal) hoseons.add(hoseonVal); if(taskVal) tasks.add(taskVal);
+          entries.push({date:ds,hoseon:hoseonVal,tank:tankVal,tasks:[taskVal],pct:pctVal,workers:workersVal,hours:hoursVal,note:noteVal});
         }
       }
-      return ContentService
-        .createTextOutput(JSON.stringify({
-          ok:true,
-          entries: entries,
-          hoseons:[...hoseons],
-          tasks:[...tasks]
-        }))
-        .setMimeType(ContentService.MimeType.JSON);
+      return ContentService.createTextOutput(JSON.stringify({ok:true,entries,hoseons:[...hoseons],tasks:[...tasks]})).setMimeType(ContentService.MimeType.JSON);
     }
-    return ContentService
-      .createTextOutput(JSON.stringify({ok:true}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(JSON.stringify({ok:true})).setMimeType(ContentService.MimeType.JSON);
   } catch(err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({ok:false, error: err.toString()}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(JSON.stringify({ok:false, error: err.toString()})).setMimeType(ContentService.MimeType.JSON);
   }
 }`;
 }
 
-/* 실행 */
 boot();
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>{
-    navigator.serviceWorker.register('sw.js')
-      .then(()=>console.log('SW 등록 완료'))
-      .catch(e=>console.log('SW 등록 실패',e));
+    navigator.serviceWorker.register('sw.js').then(()=>console.log('SW 등록 완료')).catch(e=>console.log('SW 등록 실패',e));
   });
 }
 </script>
