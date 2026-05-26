@@ -181,6 +181,51 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
 .pval{font-size:13px;font-weight:700;color:var(--text)}
 .pdot{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--border2)}
 .pitem.on .pdot{background:var(--accent);border-color:var(--accent)}
+
+/* ── 진도율 슬라이더 UI ── */
+.pct-wrap{display:flex;flex-direction:column;gap:10px}
+.pct-slider{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:6px;border-radius:3px;
+  background:linear-gradient(to right, var(--accent) 0%, var(--accent) var(--pct-fill,0%), var(--bg3) var(--pct-fill,0%), var(--bg3) 100%);
+  outline:none;cursor:pointer;
+}
+.pct-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--accent);border:3px solid #fff;
+  box-shadow:0 1px 6px rgba(0,0,0,0.22);cursor:pointer;
+}
+.pct-slider::-moz-range-thumb{
+  width:24px;height:24px;border-radius:50%;
+  background:var(--accent);border:3px solid #fff;
+  box-shadow:0 1px 6px rgba(0,0,0,0.22);cursor:pointer;
+}
+.pct-num-row{display:flex;align-items:center;gap:6px}
+.pct-num-input{
+  flex:1;min-width:0;text-align:center;
+  padding:10px 4px;border:1.5px solid var(--border2);
+  border-radius:var(--r);font-size:22px;font-weight:800;
+  background:var(--bg);color:var(--accent);font-family:inherit;
+  -webkit-appearance:none;appearance:none;
+}
+.pct-unit{font-size:18px;font-weight:700;color:var(--accent);flex-shrink:0}
+.pct-step-btn{
+  padding:8px 12px;border:1.5px solid var(--border2);
+  border-radius:var(--r);background:var(--bg);color:var(--text2);
+  font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;
+  flex-shrink:0;-webkit-tap-highlight-color:transparent;
+}
+.pct-step-btn:active{background:var(--bg3);color:var(--accent)}
+.pct-quick-row{display:flex;gap:6px}
+.pct-quick-btn{
+  flex:1;padding:8px 4px;border:1.5px solid var(--border2);
+  border-radius:var(--r);background:var(--bg);color:var(--text2);
+  font-size:12px;font-weight:700;font-family:inherit;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.pct-quick-btn:active{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.pct-quick-full{border-color:var(--green);color:var(--green)!important;background:var(--green-bg)!important}
 .pvbox{background:var(--bg2);border-radius:var(--r);padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.9;margin-top:4px;min-height:42px;white-space:pre-line}
 .mbtns{display:flex;gap:10px;margin-top:18px}
 .mcancel{flex:1;padding:14px;border:0.5px solid var(--border2);border-radius:var(--rl);background:none;color:var(--text);font-size:15px;font-weight:600;font-family:inherit;cursor:pointer}
@@ -379,7 +424,29 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
     </div>
     <div class="fg">
       <label class="fl">진도율</label>
-      <div class="pgrid" id="pctChecks"></div>
+      <div class="pct-wrap">
+        <!-- 슬라이더 -->
+        <input type="range" id="pctSlider" min="0" max="100" step="1" value="0"
+          oninput="syncPctFromSlider(this.value)" class="pct-slider">
+        <!-- 숫자 직접 입력 -->
+        <div class="pct-num-row">
+          <button class="pct-step-btn" onclick="stepPct(-5)">−5</button>
+          <button class="pct-step-btn" onclick="stepPct(-1)">−1</button>
+          <input type="number" id="pctNumInput" min="0" max="100" value="0"
+            inputmode="numeric" class="pct-num-input"
+            oninput="syncPctFromNum(this.value)">
+          <span class="pct-unit">%</span>
+          <button class="pct-step-btn" onclick="stepPct(1)">+1</button>
+          <button class="pct-step-btn" onclick="stepPct(5)">+5</button>
+        </div>
+        <!-- 퀵 버튼: 25 / 50 / 75 / 100 -->
+        <div class="pct-quick-row">
+          <button class="pct-quick-btn" onclick="syncPctFromSlider(25)">25%</button>
+          <button class="pct-quick-btn" onclick="syncPctFromSlider(50)">50%</button>
+          <button class="pct-quick-btn" onclick="syncPctFromSlider(75)">75%</button>
+          <button class="pct-quick-btn pct-quick-full" onclick="syncPctFromSlider(100)">100%</button>
+        </div>
+      </div>
     </div>
     <div class="fg">
       <label class="fl">메모</label>
@@ -400,7 +467,6 @@ pre{background:var(--bg2);padding:14px;border-radius:var(--r);font-size:10px;fon
 const DEF_HOSEONS = ['2665','2666','2667'];
 const DEF_TASKS   = ['작업1','작업2','작업3','작업4','작업5','작업6'];
 const TCOLORS     = ['#3b82f6','#22c55e','#f59e0b','#ef4444','#a855f7','#06b6d4','#f97316','#84cc16','#ec4899','#14b8a6'];
-const PSTEPS      = [10,20,30,40,50,60,70,80,90,100];
 const TANKS       = ['1 tank', '2 tank', '3 tank', '4 tank'];
 
 let S = {
@@ -758,7 +824,8 @@ function buildModalUI(){
   const tSel=document.getElementById('tankSelection');
   tSel.innerHTML=TANKS.map(tk=>`<div class="tank-chip" id="tkc-${tk.replace(' ','_')}" onclick="selectModalTank('${tk}')">${tk}</div>`).join('');
   document.getElementById('taskChecks').innerHTML=S.tasks.map((t,i)=>`<div class="titem" id="tc${i}" onclick="togTask(${i})"><div class="tchk" id="tck${i}"></div><span class="tname">${t}</span></div>`).join('');
-  document.getElementById('pctChecks').innerHTML=PSTEPS.map(v=>`<div class="pitem" id="pc${v}" onclick="pickPct(${v})"><span class="pval">${v}%</span><div class="pdot" id="pd${v}"></div></div>`).join('');
+  // 진도율 슬라이더 초기화
+  _setPct(0);
 }
 
 function selectModalTank(tk){
@@ -771,8 +838,28 @@ function togTask(i){
   const it=document.getElementById('tc'+i), ck=document.getElementById('tck'+i);
   const on=it.classList.toggle('on'); ck.textContent=on?'✓':''; updatePrev();
 }
-function pickPct(v){
-  PSTEPS.forEach(s=>{document.getElementById('pc'+s)?.classList.remove('on');}); window._selPct=v; document.getElementById('pc'+v)?.classList.add('on'); updatePrev();
+/* ── 진도율 슬라이더 / 숫자입력 동기화 ── */
+function _setPct(v){
+  v = Math.max(0, Math.min(100, parseInt(v)||0));
+  window._selPct = v;
+  const slider = document.getElementById('pctSlider');
+  const numInput = document.getElementById('pctNumInput');
+  if(slider){ slider.value = v; slider.style.setProperty('--pct-fill', v+'%'); }
+  if(numInput) numInput.value = v;
+  updatePrev();
+}
+function syncPctFromSlider(v){ _setPct(v); }
+function syncPctFromNum(v){
+  let n = parseInt(v);
+  if(isNaN(n)) return;
+  n = Math.max(0, Math.min(100, n));
+  window._selPct = n;
+  const slider = document.getElementById('pctSlider');
+  if(slider){ slider.value = n; slider.style.setProperty('--pct-fill', n+'%'); }
+  updatePrev();
+}
+function stepPct(delta){
+  _setPct((window._selPct||0) + delta);
 }
 function updatePrev(){
   const h=document.getElementById('fHost').value;
@@ -801,13 +888,14 @@ function openModal(idx){
     document.getElementById('fNote').value=e.note||'';
     window._selTank=e.tank||'1 tank';
     (e.tasks||[e.task||'']).forEach(t=>{ const i=S.tasks.indexOf(t); if(i>=0){ document.getElementById('tc'+i)?.classList.add('on'); const ck=document.getElementById('tck'+i); if(ck) ck.textContent='✓'; } });
-    if(e.pct&&PSTEPS.includes(e.pct)){ window._selPct=e.pct; document.getElementById('pc'+e.pct)?.classList.add('on'); }
+    _setPct(e.pct||0);
   } else {
     document.getElementById('fDate').value=S.selDay||getLocalDateStr();
     document.getElementById('fHost').value=S.activeHoseon||S.hoseons[0]||'';
     document.getElementById('fWorkers').value='';
     document.getElementById('fHours').value='';
     document.getElementById('fNote').value='';
+    _setPct(0);
   }
   selectModalTank(window._selTank);
   document.getElementById('modal').classList.add('on');
@@ -819,22 +907,21 @@ function openModalWith(hoseon, tank, task){
   S.editIdx=null; window._selPct=0; window._selTank=tank;
   document.getElementById('mTitle').textContent='작업 입력';
   buildModalUI();
-  // 날짜·호선·탱크 사전 선택
   document.getElementById('fDate').value=S.selDay||getLocalDateStr();
   document.getElementById('fHost').value=hoseon;
   document.getElementById('fWorkers').value='';
   document.getElementById('fHours').value='';
   document.getElementById('fNote').value='';
-  // 탱크 칩 선택
   selectModalTank(tank);
-  // 작업 체크 사전 선택
   const taskIdx=S.tasks.indexOf(task);
   if(taskIdx>=0){
     document.getElementById('tc'+taskIdx)?.classList.add('on');
     const ck=document.getElementById('tck'+taskIdx);
     if(ck) ck.textContent='✓';
   }
-  updatePrev();
+  // 기존 진도율 가져와서 슬라이더에 사전 세팅
+  const existingPct = getTankTaskCum(hoseon, tank, task);
+  _setPct(existingPct);
   document.getElementById('modal').classList.add('on');
   document.body.style.overflow='hidden';
 }
@@ -852,7 +939,7 @@ function saveEntry(){
   const note=document.getElementById('fNote').value;
   if(!date){toast('날짜를 선택해주세요');return;}
   if(!tasks.length){toast('작업을 선택해주세요');return;}
-  if(!pct){toast('진도율을 선택해주세요');return;}
+  if(!pct||pct<1){toast('진도율을 1% 이상 입력해주세요');return;}
   const entry={date,hoseon,tank,tasks,pct,workers,hours,note};
   if(S.editIdx!==null) S.entries[S.editIdx]=entry; else S.entries.push(entry);
   save(); closeModal(); renderAll(); toast('저장되었습니다');
